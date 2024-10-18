@@ -103,8 +103,6 @@ def pipeLine(ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,
     stepCount = stepsToDo["Smooth Patch"] + stepsToDo["IntelFix"] + (stepsToDo["MoreCPU"] or int(originalVRAM) != vRAM) + stepsToDo["FlushDCBackup"] + stepsToDo["Stopping Store Generated Jpgs"] + (len(modsToDownload))
     stepsDone = 0
 
-    print(stepCount)
-
     if stepsToDo["Smooth Patch"]:
         smoothPatch(1000,maxFPS,stepsToDo["Borderless"],gamePath,update)
         stepsDone = updateProgress(progress,stepsDone,stepCount)

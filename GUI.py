@@ -8,17 +8,6 @@ from PySide6.QtGui import QAction, QFont, QCursor
 from PySide6.QtWidgets import (QApplication, QDialog, QDialogButtonBox, QGridLayout, QLabel, QLineEdit,
                                QListWidget, QProgressBar, QPushButton, QTreeWidget, QTreeWidgetItem, QFileDialog,QTextBrowser)
 
-class port:
-    def __init__(self,view):
-        self.view = view
-
-    def write(self,*args):
-        self.view.append(*args)
-
-    def flush(self):
-        pass
-
-
 # Step 1: Create a Worker class inheriting from QThread
 class Worker(QThread):
     # Signal to notify when the task is done (optional, if you want to update the UI)
@@ -128,7 +117,7 @@ class Ui_Window(object):
 
     def setupUi(self, Window):
         Window.setObjectName("Window")
-        Window.resize(1024, 800)
+        Window.resize(1200, 800)
 
         self.ownedPacks = set()
         # Create an action (can be connected to functionality later)
@@ -146,14 +135,13 @@ class Ui_Window(object):
         # Add progress bar
         self.progressBar = QProgressBar(Window)
         self.progressBar.setObjectName("progressBar")
-        self.progressBar.setValue(0)  # Example value (can be updated as needed)
+        self.progressBar.setValue(0)
         self.gridLayout.addWidget(self.progressBar, 4, 0, 1, 2)
 
         # Add System Output label and list widget
         self.SystemOutputLabel = QLabel("System Output", Window)
         self.gridLayout.addWidget(self.SystemOutputLabel, 2, 0)
         self.SystemOutput = QTextBrowser(Window)
-        #sys.stdout = port(self.SystemOutput)
         self.SystemOutput.setObjectName("SystemOutput")
         self.gridLayout.addWidget(self.SystemOutput, 3, 0, 1, 2)
 
@@ -162,6 +150,8 @@ class Ui_Window(object):
         self.Components.setObjectName("Components")
         self.Components.setColumnCount(4)
         self.Components.setHeaderLabels(["Name", "Description", "Dependencies", "Value"])
+        self.Components.setColumnWidth(0,370)
+        self.Components.setColumnWidth(1,600)
         self.gridLayout.addWidget(self.Components, 1, 0, 1, 2)
         self.ComponentsDic = {}
 
@@ -225,6 +215,7 @@ class Ui_Window(object):
 
         for section, stepsInSection in steps.items():
             parentItem = QTreeWidgetItem(self.Components)
+            parentItem.setExpanded(True)
             parentItem.setText(0, section)
             for key in stepsInSection:
                 if "Description" == key:
@@ -234,11 +225,12 @@ class Ui_Window(object):
                         parentItem.setCheckState(3, Qt.Unchecked)
                     else:
                         parentItem.setText(3, stepsInSection[key]) 
+                        parentItem.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable|Qt.ItemIsEnabled)
                 else:
                         info = stepsInSection[key]
-                        print(info)
                         # Add child items
                         childItem1 = QTreeWidgetItem(parentItem)
+                        childItem1.setExpanded(True)
                         childItem1.setText(0, key)
                         childItem1.setText(1, info["Description"]if "Description" in info else "")
                         childItem1.setText(2, "No dependencies")
@@ -246,6 +238,7 @@ class Ui_Window(object):
                             childItem1.setCheckState(3, Qt.Unchecked)
                         else:
                             childItem1.setText(3, info["value"]) 
+                            childItem1.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable|Qt.ItemIsEnabled)
                             
                         self.ComponentsDic["Steps"][key] = childItem1
             
@@ -257,21 +250,20 @@ class Ui_Window(object):
         for section,modsInSection in mods.items():
             # Create a parent item in the tree widget
             parentItem = QTreeWidgetItem(self.Components)
+            parentItem.setExpanded(True)
             parentItem.setText(0, section)
             parentItem.setCheckState(0, Qt.Unchecked)
 
             for name,info in modsInSection.items():
                 # Add child items
                 childItem1 = QTreeWidgetItem(parentItem)
+                childItem1.setExpanded(True)
                 childItem1.setText(0, name)
                 childItem1.setText(1, info["Description"]if "Description" in info else "")
                 childItem1.setText(2, "No dependencies")
                 childItem1.setCheckState(3, Qt.Unchecked)
                 self.ComponentsDic["Mods"][name] = childItem1
 
-        childItem2 = QTreeWidgetItem(parentItem)
-        childItem2.setText(0, "Test")
-        childItem2.setText(3, "3500")
 # Main window class inheriting from QDialog and Ui_Window
 class MyWindow(QDialog, Ui_Window):
     def __init__(self):
