@@ -1,0 +1,440 @@
+{
+    "Nraas Mods": {
+        "Error Trap": {
+            "Link": "https://www.nraas.net/community/download/NRaas_ErrorTrap_P167_V100_Steam.zip",
+            "LinkEA": "https://www.nraas.net/community/download/NRaas_ErrorTrap_P167_V100.zip",
+            "FileName": "Nraas_ErrorTrap.zip",
+            "Description": " Error Trap is a mod that detects and catches corrupted data and lets save games be loaded/played and preventing crashes, Error trap will also create logs within the games documents folders to help narrow down the error cause."
+        },
+        "Overwatch": {
+            "Link": "https://www.nraas.net/community/download/NRaas_Overwatch_V122.zip",
+            "FileName": "Nraas_OverWatch.rar",
+            "Description": "Overwatch resets stuck sims and puts them back to their home lot safely will also remove unused cars that slow down the game, turn off stereos that are not in use on non played sims homes ect."
+        },
+        "Master Controller": {
+            "Link": "https://www.nraas.net/community/download/NRaas_MasterController_V134.zip",
+            "FileName": "Nraas_Master_Controller.rar",
+            "Description": "Lets you become more of a god with option to set slider values edit any sims in CAS set skill levels and so on can also be used to reset lots and sims manually even an entire town to fix any issues."
+        },
+        "Register": {
+            "Link": "https://www.nraas.net/community/download/NRaas_Register_V81.zip",
+            "FileName": "Nraas_Register.rar",
+            "Description": "Allows the user to disable certain classes of npc's within town things such as paparazi's, strays, wild horses, unicorns and much more! This can help big with performance in worlds such as isla paradiso were horses cause lots of lag when spawned in by the game."
+        }
+    },
+    "Base": {
+        "simler90's Gameplay Core Mod": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2045271&v=1725187477",
+            "FileName": "simler90GameplayCoreMod-UPDATE206.7z",
+            "Description": "Simler90's Gameplay Core Mod fixes a long list of issue and bugs with the base game and many of the expansion packs. (WARNING: This mod is incompatible with many of Nraas mods)"
+        },
+        "Sims need less Space": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2214102&v=1711304054",
+            "FileName": "OhRudi__Routing_Fix__Sims_need_less_Space.zip",
+            "filesPerEP": {
+                "EP1": "OhRudi__WorldAdventures__Sims_need_less_Space.package",
+                "EP2": "OhRudi__Ambitions__Sims_need_less_Space.package",
+                "EP3": "OhRudi__LateNight__Sims_need_less_Space.package",
+                "EP4": "OhRudi__Generations__Sims_need_less_Space.package",
+                "EP6": "OhRudi__Showtime__Sims_need_less_Space.package",
+                "EP7": "OhRudi__Supernatural__Sims_need_less_Space.package",
+                "EP8": "OhRudi__Seasons__Sims_need_less_Space.package",
+                "EP9": "OhRudi__UniversityLife__Sims_need_less_Space.package",
+                "EP10": "OhRudi__IslandParadise__Sims_need_less_Space.package",
+                "EP11": "OhRudi__IntoTheFuture__Sims_need_less_Space.package"
+            },
+            "Description": "Lets sims do certain interactions without needing as much space to do them as before which can help with routing issues."
+        },
+        "Fewer automatic memories": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1277277&v=1330683057",
+            "FileName": "MTS_velocitygrass_1277277_velocitygrass_only_important_memories.zip"
+        },
+        "Tileable Items Shader FIX": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2011174&v=1619783721",
+            "FileName": "Simsi45_Tileable_Items_Shader_FIX.rar",
+            "filesPerEP": {
+                "EP1": "WORLD ADVENTURES - Tileable_Items_Shader_FIXED.package",
+                "EP3": "LATE NIGHT - Tileable_Items_Shader_FIXED.package",
+                "EP5": "PETS - Tileable_Items_Shader_FIXED.package",
+                "EP6": "SHOWTIME - Tileable_Items_Shader_FIXED.package",
+                "EP7": "SUPERNATURAL - Tileable_Items_Shader_FIXED.package",
+                "EP9": "UNIVERSITY LIFE - Tileable_Items_FIXED.package",
+                "EP11": "INTO THE FUTURE - Tileable_Items_FIXED.package",
+                "SP1": "HELS - Tileable_Items_Shader_FIXED.package",
+                "SP4": "TOWN LIFE STUFF - Tileable_Items_Shader_FIXED.package",
+                "SP8": "DECADES -Tileable_Items_Shader_FIXED.package"
+            }
+        },
+        "Interaction on sloped terrain enabler": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1447145&v=1406541577",
+            "FileName": "Nikel23 - Interact on sloped terrain.rar",
+            "Description": "This mod will allow sims to interact on sloped terrain and will fix sims getting stuck when trying to interact with objects or other sims on a slighty sloped terrain."
+        },
+        "Base Game Half Walls FIXED!!!!": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1707374&v=1499976359",
+            "FileName": "Half walls fixed - all.rar"
+        },
+        "EA Eyeshadow Texture Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1388294&v=1378716256",
+            "FileName": "EyeshadowAlphaFix_BaseGame_DefaultReplacement.zip",
+            "toOverride": true,
+            "Description": "Fixes bad alpha mapping on the eye shadow textures done by EA."
+        },
+        "Muscle Slider Fix for Teens and Elders": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1160885&v=1292938522",
+            "FileName": "Muscle Slider Nude Fix.rar",
+            "Description": "Fixes the muscle tone sliders not working on teen and elder sims."
+        },
+        "Get to Know Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2089148&v=1720569960",
+            "FileName": "GetToKnowFix.zip",
+            "Description": "Fixes the \"get to know\" interaction and how often sims discover traits of other sims. Also has an option to discover hidden traits.Consider supporting simbouquet for all their amazing work? You can HERE!"
+        },
+        "Welcome Matt Deshined Rug": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1901777&v=1580885257",
+            "FileName": "Welcome Matt Deshined by celtysims.zip",
+            "Description": "Fixes an issue with a base game rug having the wrong specular mapping applied to it making it very shiny."
+        },
+        "Horizontal Clapboard - Fixed": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1997126&v=1615699938",
+            "FileName": "CW_HorizontalClapboardFixed.zip",
+            "Description": "Fixes an issue with wonky texture normals on the Horizontal Clapboard wall paint."
+        },
+        "BG Altitute Quantizer Stairs Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2010958&v=1619725508",
+            "FileName": "enablellamasAtomicAgeStairsFixDR.rar"
+        },
+        "Walk Cycle Edits": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2109191&v=1660529890",
+            "FileName": "OVERRIDE_WalkCycleEdits.zip",
+            "toOverride": true
+        },
+        "TS3: Facial Expressions Converted From The Sims Medieval": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2110670&v=1659365965",
+            "FileName": "OVERRIDE_TSMtoTS3_FacialExpressions_AlternateVer.zip",
+            "toOverride": true,
+            "Description": "changes 15 of the 20 base game facial animations with the ones from sims medieval. While not technically a bug fix it can fix clipping with certain facial animations like eye lashes going through sims brows when frowning and distorted facial features.Consider supporting simbouquet for all their amazing work? You can HERE!"
+        },
+        "Random Sim Fixes": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2118275&v=1682190864",
+            "FileName": "ld_RandomSimFixes.zip",
+            "Description": "Fixes an issue were in the base game the game would give every generated sim the same default value for face customisation, voice and fitness. Also fixes non future world sims wearing into the future clothing. Only sims in the future world will now wear the clothing from into the future. (Into the future is not require for this mod to function)Consider supporting Lazy Duchess for all their amazing work? You can HERE!"
+        },
+        "CAS Sim Bin Genetics as Presets": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2144107&v=1674711931",
+            "FileName": "SimBinPresets.zip",
+            "Description": "Adds in more CAS facial presets for the game to choose from when using mods that fix the pudding face bug. Use this mod along side Random Sim Fixes."
+        },
+        "Sims 3 Hidden Stencils Unlocked + Fixed!": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2001265&v=1617046522",
+            "FileName": "Simsi45_Unlocked__Fixed_Stencils.rar",
+            "filesPerEP": {
+                "EP1": "WORLD ADVENTURES - Unlocked Stencils.package",
+                "EP2": "AMBITIONS - Unlocked Stencils.package",
+                "EP3": "LATE NIGHT - Unlocked Stencils.package",
+                "EP4": "GENERATIONS - Unlocked Stencils.package",
+                "EP5": "PETS - Unlocked Stencils.package",
+                "EP6": "SHOWTIME - Unlocked Stencils.package",
+                "EP8": "SEASONS - Unlocked Stencils.package",
+                "SP5": "MASTER SUITE STUFF - Unlocked Stencils.package",
+                "SP7": "DIESEL - Unlocked Stencils.package"
+            },
+            "Description": "Fixes various objects missing their extra select-able stencils, they will now be un-hidden and select-able again.Consider supporting simsi45 for all their amazing work? You can HERE!"
+        },
+        "Fishing Box/Chest Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2203386&v=1705296853",
+            "FileName": "NanaBx3_fishingBoxChest_Fix.7z"
+        },
+        "Cross-Eye Bug Fix": {
+            "Link": "https://www.patreon.com/file?h=96833640&m=267232886",
+            "FileName": "ld_CrossEyeFix.package",
+            "Description": "Fixes an issue were sims sometimes go cross-eyed after certain events like ageing up.Consider supporting Lazy Duchess for all their amazing work? You can HERE!"
+        },
+        "Toddler Routing Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2231571&v=1722469129",
+            "FileName": "TSS_ToddlerRoutingFix.rar",
+            "Description": "Fixes toddlers routing being cancelled when the failing interaction is triggered but it does not properly play resulting in all of their actions being cancelled when the fall down animation is meant to trigger.Consider supporting TheSweetSimmer for all their amazing work? You can HERE!"
+        },
+        "Pick Up Toddler Fixes": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2180477&v=1691859328",
+            "FileName": "TSS_PickUpToddlerFix.rar",
+            "Description": "Fixes some issues with how sims would approach their task of picking up toddler sims.Consider supporting TheSweetSimmer for all their amazing work? You can HERE!"
+        }
+    },
+    "World Adventures Bug Fixes": {
+        "Asian Window emits light": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2218699&v=1714318254",
+            "FileName": "OhRudi__WorldAdventures__asian_window_fix__king_qings_window.zip",
+            "Dependencies": [
+                "EP1"
+            ],
+            "Description": "Fixes an issue with a window from world adventures not emitting sunlight during day time when used."
+        }
+    },
+    "Ambitions Bug Fixes": {
+        "Spring Cleaning No Magic Clothesline": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2094423&v=1652897820",
+            "FileName": "Gamefreak130_NoMagicClothesline.rar",
+            "Dependencies": [
+                "EP2",
+                "EP8"
+            ],
+            "Description": "Fixes an issue/oversight with the cloths on the clothesline drying even when being rained on during rainy weather. Download the \"Gamefreak130_NoMagicClothesline.rar\" File from the file section! Seasons is required!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+        },
+        "Harvester Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2185496&v=1694566388",
+            "FileName": "Fantuanss12_Harverster_TempFix.zip",
+            "Dependencies": [
+                "EP2"
+            ],
+            "Description": "Fixes various issues with the Harvester after a sim has used the object."
+        }
+    },
+    "Late Bug Fixes": {
+        "Inventor's Workbench fix for Bridgeport": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1184906&v=1300769865",
+            "FileName": "Bridgeport Workbench Fix.zip",
+            "Dependencies": [
+                "EP3"
+            ],
+            "Description": "Fixes an issue were you could not make a sim bot in bridgeport using the inventors table (Ambitions is required!!)"
+        },
+        "Late Night Plant Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1152147&v=1289445274",
+            "FileName": "Robodl95_ LN Plant fix v2.rar",
+            "Dependencies": [
+                "EP3"
+            ],
+            "Description": "Fixes an issue so that some of the plant objects that came with this EP are in the right buy mode category."
+        },
+        "LN Celeb Fridge Texture Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1937749&v=1592770486",
+            "FileName": "enablellamasRefrigeratorCelebSpecFix.rar",
+            "Dependencies": [
+                "EP3"
+            ],
+            "Description": "Fixes an issue with the specular mapping on a fridge that was added by Late Night the fridge now has the proper reflective texture applied."
+        }
+    },
+    "Generations Bug Fixes": {
+        "Read Toddler to Sleep - Fixed Interaction": {
+            "Link": "https://cdn.simfileshare.net/download/1134096/?dl",
+            "FileName": "danjaley_read2sleepfix.zip",
+            "Dependencies": [
+                "EP4"
+            ],
+            "Description": "Fixes the interaction to read a toddler to sleep interaction"
+        },
+        "Generations: Fix For Natural Family Portrait": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1213577&v=1310416499",
+            "FileName": "PTS3_ThomasRiordan_paintingGenAwkwardFamilyPhotoFixed.zip",
+            "Dependencies": [
+                "EP4"
+            ]
+        },
+        "Generations Shirt & Sweater Top - Channel Fix": {
+            "Link": "https://cdn.simfileshare.net/download/3163449/?dl",
+            "FileName": "sweetdevil_GENShirtSweaterTopChannelFix_TAM_DR.zip",
+            "Dependencies": [
+                "EP4"
+            ],
+            "Description": "Fixes some texture channelling issues on a shirt from generations."
+        }
+    },
+    "Pets Bug Fixes": {
+        "Pets need less Space": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2211915&v=1710031110",
+            "FileName": "OhRudi__Routing Fix__Pets_need_less_space.zip",
+            "Dependencies": [
+                "EP5"
+            ],
+            "Description": "Reduces the size of the area that all pets needs to interact with objects and sims reducing routing failures and unnecessary shuffling around."
+        },
+        "Pet Tombstone Shadow Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1278390&v=1331035577",
+            "FileName": "MM_PetTombstoneShadowFix.zip",
+            "Dependencies": [
+                "EP5"
+            ]
+        },
+        "Fixed horse tails (no more shiny horses!)": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2002450&v=1617483516",
+            "FileName": "Simsi45_Horse_Tails_FIX.rar",
+            "Dependencies": [
+                "EP5"
+            ],
+            "Description": "Fixes issues with horses being shiny due to specular shininess being set wrong on horses tails.Consider supporting simsi45  for all their amazing work? You can HERE!"
+        }
+    },
+    "University Life Bug Fixes": {
+        "No More University Life NPC Protests": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1580435&v=1446384482",
+            "FileName": "DB_ImprovedProtestSituation_NoNPCProtests.zip",
+            "Dependencies": [
+                "EP9"
+            ],
+            "Description": "This will fix sims trying to start protest in the ocean and other rondom places that would casue lag."
+        },
+        "University Life Alpha Omega Door Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1805820&v=1540891408",
+            "FileName": "AlphaOmegaDoorFixed.package.zip",
+            "Dependencies": [
+                "EP9"
+            ],
+            "Description": "Fixes a bug so the door can be changed to any color from the door frames color."
+        },
+        "University Life Visual Fixes": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2089143&v=1650295797",
+            "FileName": "simbouquet_OVERRIDE_EP9visualfixes.zip",
+            "Dependencies": [
+                "EP9"
+            ],
+            "toOverride": true,
+            "Description": "Fixes several issues with university life and some icons and images associated with texting and speech bubbles."
+        }
+    },
+    "Supernatural Bug Fixes": {
+        "A Proper Fix to the Proper Trait": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1635905&v=1470097715",
+            "FileName": "ProperTraitFixUPDATED_[spotlessleopard].zip",
+            "Dependencies": [
+                "EP7"
+            ],
+            "Description": "Fixes some bugs and issues with the Proper Trait."
+        },
+        "Restoration Spell Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1537762&v=1433681478",
+            "FileName": "Arsil_RestorationSpellFix.package.zip",
+            "Dependencies": [
+                "EP7"
+            ],
+            "Description": "Fixes some interactions with objects with the restoration spell."
+        },
+        "No More Zombies Generated At Full Moon": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1322676&v=1347392956",
+            "FileName": "NoMoreZombies.zip",
+            "Dependencies": [
+                "EP7"
+            ],
+            "Description": "Makes it so the game does not spawn zombies at a full moon every lunar cycle lagging the game on nights with the full moon. Potions and elixirs can still transform people into zombies if you pick the mod version which keeps those methods in the game!"
+        }
+    },
+    "Seasons Bug Fixes": {
+        "Fast Leaf Raking": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1388736&v=1379022233",
+            "FileName": "fast raking.rar",
+            "Dependencies": [
+                "EP8"
+            ]
+        },
+        "No more ugly snowprints": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1882118&v=1572098501",
+            "FileName": "Lyralei - NoMoreUglySnowPrints.zip",
+            "Dependencies": [
+                "EP8"
+            ],
+            "toOverride": true,
+            "Description": "fixes the ugly miss match of snow textures around certain objects.Consider supporting Lyralei for all their amazing work? You can HERE!"
+        },
+        "Spring Cleaning Weather Forecast Tweaks": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2094426&v=1653335474",
+            "FileName": "Gamefreak130_WeatherForecastTweaks.rar",
+            "Dependencies": [
+                "EP8"
+            ],
+            "Description": "Fixes issues with the rain weather type appearing way too often in the summer season. The mod also makes the weather forecast more accurate and easy to read! Download the \"Gamefreak130_WeatherForecastTweaks.rar\" File from the downloads section!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+        },
+        "Spring Cleaning Truly Eclipsing Fog": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2094425&v=1651857097",
+            "FileName": "Gamefreak130_TrulyEclipsingFog.rar",
+            "Dependencies": [
+                "EP8"
+            ],
+            "Description": "Fixes issues with the weather stone vampire weather and how it was not applying the correct buffs to vampires. Download the \"Gamefreak130_TrulyEclipsingFog.rar\" file from the file section!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+        }
+    },
+    "Island Paradise Bug Fixes": {
+        "Hanging Lantern Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1879821&v=1571096635",
+            "FileName": "heaven_IPHangingLanternFix.rar",
+            "Dependencies": [
+                "EP10"
+            ],
+            "Description": "Fixes an issue so sims can pass under the the object and not be blocked off by it."
+        },
+        "Reduce/Remove Lag caused by Houseboats": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2087489&v=1648656281",
+            "FileName": "StopAutopilot_Helm_Updated_03_29_22.zip",
+            "Dependencies": [
+                "EP10"
+            ],
+            "Description": "Disables non active households being able to move their house boats autonomously which would result in micro stutters and lag while playing in worlds with house boats lived in my non player families. You will still be able to move your house boats if you currently live in one this mod just stops non played households from moving their house boats!"
+        },
+        "Autonomous Play In The Ocean Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=2232921&v=1723377727",
+            "FileName": "GoAndPlayInOceanFix.zip",
+            "Dependencies": [
+                "EP10"
+            ]
+        }
+    },
+    "Into the Future Bug Fixes": {
+        "ITF Perigee Planter Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1869799&v=1567127881",
+            "FileName": "heaven_ITFfenceFix.rar",
+            "Dependencies": [
+                "EP11"
+            ],
+            "Description": "Fixes the snow placement on the fence during winter (seasons expansion required)"
+        },
+        "Watch Laser Rhythm-a-Con FIX": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1404527&v=1388356825",
+            "FileName": "MTS_simsaddict777_lazerharp_FIX.rar",
+            "Dependencies": [
+                "EP11"
+            ]
+        }
+    },
+    "Store Item Bug Fixes": {
+        "Amour Perfume Moodlet Typo Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1746401&v=1518217912",
+            "FileName": "Gamefreak130_PerfumeMoodletFix.rar",
+            "Dependencies": [
+                "STORE"
+            ],
+            "Description": "Fixes a type with the gain moodlets from the new objects.Consider Supporting gamefreak130 for all their amazing work? You can HERE!"
+        },
+        "Banquett Fan Routing Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1295940&v=1337841449",
+            "FileName": "BanquetFanFix.zip",
+            "Dependencies": [
+                "STORE"
+            ],
+            "Description": "Fixes routing issues with the Banquett Fan. "
+        },
+        "More Efficient Upgrade Name Fix": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1147820&v=1287931127",
+            "FileName": "Buzz_MoreEfficientUpgradeNameFix.zip",
+            "Dependencies": [
+                "STORE"
+            ],
+            "Description": "fixes an issue with the upgrade option on two store objects the The Legendary Wind Raker."
+        },
+        "Haute Hacienda Fireplace Fixes": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1957908&v=1600479209",
+            "FileName": "HauteHaciendaFireplace Fixes.zip",
+            "Dependencies": [
+                "STORE"
+            ],
+            "Description": "Fixes some issues with the Haute Hacienda Fireplace from the sims 3 store."
+        },
+        "Now & Then Manor Curved Staircase FIXED!": {
+            "Link": "https://chii.modthesims.info/getfile.php?file=1998959&v=1616273181",
+            "FileName": "Simsi45_Curved_Staircase_FIX.rar",
+            "Dependencies": [
+                "STORE"
+            ],
+            "Description": "Fixes clipping issues when placing the objects next to stairs. Requires the Hang Left/Right Curved Colonial Stair Rail"
+        }
+    }
+}

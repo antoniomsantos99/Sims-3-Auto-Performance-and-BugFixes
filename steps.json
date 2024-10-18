@@ -1,0 +1,38 @@
+{
+    "Smooth Patch": {
+        "Download Smooth Patch": {
+            "Description": "Alters the speed at which the game's processing runs, which improves the overall performance of the game and some loading times. Most noticeably in Create A Sim, Create A Style and Buy/Build.",
+            "value": "bool"
+        },
+        "Set FPS Limit": {
+            "Description": "Limits FPS. Not limiting the games FPS can decrease the life of your graphics card fans!",
+            "value": "60"
+        },
+        "Borderless": {
+            "Description": "Enabled Borderless Windowed in-game. Uncheck Fullscreen in the in-game options for it to work.",
+            "value": "bool"
+        }
+    },
+    "Intel Fix": {
+        "Description": "Very simple patch that attempts to workaround the crash on boot when trying to launch The Sims 3 on Intel alder lake CPU's (12th gen) or higher.",
+        "value": "bool"
+    },
+    "GraphicRules Optimizations": {
+            "Making The Game Use More CPU": {
+                "Description": "Increases use of CPU. If you are using a PC with a low end CPU or a PC that is not meant for gaming this step should be skipped!",
+                "value": "bool"
+            },
+            "Change allocated GPU VRAM": {
+                "Description": "Increases use of GPU VRAM. Leave it untouched if not sure.",
+                "value": "32"
+            }
+        },
+        "Flush DCBackup": {
+            "Description": "Clean DCBackup folder to prevent slowdowns. Do not use if intending to upload sims or lots with CC to exchange.",
+            "value": "bool"
+        },
+        "Stopping Store Generated Jpgs": {
+            "Description": "Stop game from generating images for store items.",
+            "value": "bool"
+        }
+    }
