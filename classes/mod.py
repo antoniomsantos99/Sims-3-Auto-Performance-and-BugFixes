@@ -8,7 +8,7 @@ import io
 import os
 
 class Mod:
-    def __init__(self,name,dic,ownedPacks):
+    def __init__(self,name,dic,ownedPacks=set()):
         self.name : str = name
         self.link : str = dic["Link"]
         self.fileName : str = dic["FileName"]
@@ -31,8 +31,8 @@ class Mod:
         with open(path+self.fileName,"wb") as f:
             f.write(req.content)
 
-    def downloadAndExtractMod(self,path=None):
-        print(f"Downloding {self.fileName} from {self.link}")
+    def downloadAndExtractMod(self,path=None,update=None):
+        update.emit(f"Downloding {self.fileName} from {self.link}")
         req = requests.get(self.link)
         if req.status_code != 200:
             return -1
@@ -50,19 +50,19 @@ class Mod:
             fileList = archive.filelist if self.fileName.endswith(".zip") else archive.infolist()
             for fileInfo in fileList:
                 if fileInfo.filename not in EPDependentFiles or EPDependentFiles[fileInfo.filename] in self.ownedPacks:
-                    print(f"Extracting {fileInfo.filename} to {path}")
+                    update.emit(f"Extracting {fileInfo.filename} to {path}")
                     archive.extract(fileInfo,path)
             archive.close()
         else:
             with open(path+self.fileName,"wb") as f:
-                print(f"Writing {self.fileName} to {path}")
+                update.emit(f"Writing {self.fileName} to {path}")
                 f.write(req.content)
 
         return 1
         
     
-    def downloadAndExtractModWithFileMap(self,fileMap):
-        print(f"Downloding {self.fileName} from {self.link}")
+    def downloadAndExtractModWithFileMap(self,fileMap,update):
+        update.emit(f"Downloding {self.fileName} from {self.link}")
         req = requests.get(self.link)
         if req.status_code != 200:
             return -1
@@ -74,7 +74,7 @@ class Mod:
             for fileName,filePath in fileMap.items():
                 if fileName not in EPDependentFiles or EPDependentFiles[fileName] in self.ownedPacks:
                     os.makedirs(filePath, exist_ok=True)
-                    print(f"Extracting {fileName} to {filePath}")
+                    update.emit(f"Extracting {fileName} to {filePath}")
                     archive.extract(fileName,filePath)
             archive.close()
 

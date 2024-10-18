@@ -3,7 +3,7 @@ import os
 
 import programLogic
 
-from PySide6.QtCore import QCoreApplication, QMetaObject, Qt, QProcess, QThread,Signal
+from PySide6.QtCore import QCoreApplication, QMetaObject, Qt, QProcess, QThread,Signal,Slot
 from PySide6.QtGui import QAction, QFont, QCursor
 from PySide6.QtWidgets import (QApplication, QDialog, QDialogButtonBox, QGridLayout, QLabel, QLineEdit,
                                QListWidget, QProgressBar, QPushButton, QTreeWidget, QTreeWidgetItem, QFileDialog,QTextBrowser)
@@ -23,8 +23,9 @@ class port:
 class Worker(QThread):
     # Signal to notify when the task is done (optional, if you want to update the UI)
     finished = Signal()
-    progress = Signal(int)
     update = Signal(str)
+    progress = Signal(int)
+    
 
     def __init__(self, ownedPacks, stepsToDo, modsToDownload, userFiles, gameFiles, originalVRAM):
         super().__init__()
@@ -109,7 +110,7 @@ class Ui_Window(object):
         self.worker = Worker(self.ownedPacks, stepsToDo, modsToDownload, self.UserFilesLineEdit.text(),self.GameFilesLineEdit.text(),self.originalVRAM)
         self.worker.finished.connect(self.on_pipeline_finished)
         self.worker.progress.connect(self.update_progress_bar)
-        self.worker.progress.connect(self.on_update)
+        self.worker.update.connect(self.on_update)
         # Step 4: Start the worker thread
         self.worker.start()
 
@@ -118,11 +119,12 @@ class Ui_Window(object):
         print("Pipeline finished")
 
     def update_progress_bar(self, value):
-        # Update the progress bar with the received value
+        print("Progress",value)
         self.progressBar.setValue(value)
-
-    def on_update(self,text):
-        self.SystemOutput.append(text)
+    
+    def on_update(self,text : str):
+        print("Update", text)
+        self.SystemOutput.append(str(text))
 
     def setupUi(self, Window):
         Window.setObjectName("Window")
