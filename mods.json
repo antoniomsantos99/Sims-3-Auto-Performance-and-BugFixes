@@ -203,6 +203,7 @@
             "Link": "https://chii.modthesims.info/getfile.php?file=1184906&v=1300769865",
             "FileName": "Bridgeport Workbench Fix.zip",
             "Dependencies": [
+                "EP2",
                 "EP3"
             ],
             "Description": "Fixes an issue were you could not make a sim bot in bridgeport using the inventors table (Ambitions is required!!)"
