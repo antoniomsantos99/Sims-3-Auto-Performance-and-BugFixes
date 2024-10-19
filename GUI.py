@@ -160,13 +160,13 @@ class Ui_Window(object):
 
         # Add dialog buttons (OK, Cancel, Yes to All, No to All)
         self.DialogButtonBox = QDialogButtonBox(Window)
-        self.DialogButtonBox.setStandardButtons(QDialogButtonBox.Ok | QDialogButtonBox.Cancel | 
-                                                QDialogButtonBox.YesToAll | QDialogButtonBox.NoToAll)
+        self.DialogButtonBox.setStandardButtons(QDialogButtonBox.Ok | QDialogButtonBox.Cancel) #| QDialogButtonBox.YesToAll | QDialogButtonBox.NoToAll)
         self.gridLayout.addWidget(self.DialogButtonBox, 9, 0, 1, 2)
 
         # Connect OK/Cancel buttons to accept/reject methods
         self.DialogButtonBox.accepted.connect(self.startPipeline)
         self.DialogButtonBox.rejected.connect(Window.reject)
+        #self.DialogButtonBox.button(QDialogButtonBox.YesToAll).clicked.connect(self.yesToAll)
 
         # Retranslate and set window title
         self.retranslateUi(Window)
@@ -177,6 +177,14 @@ class Ui_Window(object):
     def retranslateUi(self, Window):
         Window.setWindowTitle(QCoreApplication.translate("Window", "Sims 3 Performance Fixes Assistant", None))
         self.actionTeste.setText(QCoreApplication.translate("Window", "Test Action", None))
+
+    def yesToAll(self):
+        for section in self.ComponentsDic.values():
+            for element in section.values():
+                if element.checkState(3)._value_ in [0,2]:
+                    element.setCheckState(3, Qt.Checked)
+
+        
 
     def setupFileBrowserComponents(self, Window):
         """Sets up labels, buttons, and line edits for file browsing."""
