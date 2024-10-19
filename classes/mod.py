@@ -31,34 +31,42 @@ class Mod:
         with open(path+self.fileName,"wb") as f:
             f.write(req.content)
 
-    def downloadAndExtractMod(self,path=None,update=None):
-        update.emit(f"Downloding {self.fileName} from {self.link}")
-        req = requests.get(self.link)
-        if req.status_code != 200:
+    def downloadAndExtractMod(self,path=None,update=None,retry=0):
+        if retry > 5:
+            update.emit(f"Download failed, skipping!")
             return -1
-        
-        if not path:
-            path = f"Download/{"Mods" if not self.toOverride else "Override"}/{self.name.replace(":","")}/"
-        else:
-            path = f"{path}/{"Mods" if not self.toOverride else "Override"}/{self.name.replace(":","")}/"
 
-        os.makedirs(path, exist_ok=True)
-        EPDependentFiles =  dict((v,k) for k,v in self.filesPerEP.items()) if self.filesPerEP else {}
+        update.emit(f"Downloding {self.fileName} from {self.link}")
+        try:
+            req = requests.get(self.link)
+            if req.status_code != 200:
+                return -1
+            
+            if not path:
+                path = f"Download/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
+            else:
+                path = f"{path}/Mods/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
 
-        if self.fileName.endswith(".zip") or self.fileName.endswith(".rar"):
-            archive = ZipFile(io.BytesIO(req.content)) if self.fileName.endswith(".zip") else RarFile(io.BytesIO(req.content))
-            fileList = archive.filelist if self.fileName.endswith(".zip") else archive.infolist()
-            for fileInfo in fileList:
-                if fileInfo.filename not in EPDependentFiles or EPDependentFiles[fileInfo.filename] in self.ownedPacks:
-                    update.emit(f"Extracting {fileInfo.filename} to {path}")
-                    archive.extract(fileInfo,path)
-            archive.close()
-        else:
-            with open(path+self.fileName,"wb") as f:
-                update.emit(f"Writing {self.fileName} to {path}")
-                f.write(req.content)
+            os.makedirs(path, exist_ok=True)
+            EPDependentFiles =  dict((v,k) for k,v in self.filesPerEP.items()) if self.filesPerEP else {}
 
-        return 1
+            if self.fileName.endswith(".zip") or self.fileName.endswith(".rar") or self.fileName.endswith(".7z"):
+                archive = ZipFile(io.BytesIO(req.content)) if self.fileName.endswith(".zip") else RarFile(io.BytesIO(req.content))
+                fileList = archive.filelist if self.fileName.endswith(".zip") else archive.infolist()
+                for fileInfo in fileList:
+                    if fileInfo.filename not in EPDependentFiles or EPDependentFiles[fileInfo.filename] in self.ownedPacks:
+                        update.emit(f"Extracting {fileInfo.filename} to {path}")
+                        archive.extract(fileInfo,path)
+                archive.close()
+            else:
+                with open(path+self.fileName,"wb") as f:
+                    update.emit(f"Writing {self.fileName} to {path}")
+                    f.write(req.content)
+
+            return 1
+        except:
+            update.emit(f"Download {self.fileName} failed ({retry} out of 5 tries)")
+            self.downloadAndExtractMod(path,update,retry+1)
         
     
     def downloadAndExtractModWithFileMap(self,fileMap,update):
