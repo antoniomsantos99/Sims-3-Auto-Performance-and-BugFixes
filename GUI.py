@@ -233,7 +233,7 @@ class Ui_Window(object):
                         childItem1.setExpanded(True)
                         childItem1.setText(0, key)
                         childItem1.setText(1, info["Description"]if "Description" in info else "")
-                        childItem1.setText(2, "No dependencies")
+                        childItem1.setText(2, ", ".join(info["Dependencies"] if "Dependencies" in info else ""))
                         if info["value"] == "bool":
                             childItem1.setCheckState(3, Qt.Unchecked)
                         else:
@@ -260,7 +260,7 @@ class Ui_Window(object):
                 childItem1.setExpanded(True)
                 childItem1.setText(0, name)
                 childItem1.setText(1, info["Description"]if "Description" in info else "")
-                childItem1.setText(2, "No dependencies")
+                childItem1.setText(2, ", ".join(info["Dependencies"] if "Dependencies" in info else ""))
                 childItem1.setCheckState(3, Qt.Unchecked)
                 self.ComponentsDic["Mods"][name] = childItem1
 
