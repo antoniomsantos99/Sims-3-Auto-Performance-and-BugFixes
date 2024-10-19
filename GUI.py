@@ -229,7 +229,7 @@ class Ui_Window(object):
                         parentItem.setCheckState(3, Qt.Unchecked)
                     else:
                         parentItem.setText(3, stepsInSection[key]) 
-                        parentItem.setFlags(Qt.ItemIsSelectable|Qt.ItemIsEditable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable|Qt.ItemIsEnabled)
+                        parentItem.setFlags(Qt.ItemIsSelectable,Qt.ItemIsEnabled)
                 else:
                         info = stepsInSection[key]
                         # Add child items
@@ -256,7 +256,7 @@ class Ui_Window(object):
             parentItem = QTreeWidgetItem(self.Components)
             parentItem.setExpanded(True)
             parentItem.setText(0, section)
-            parentItem.setCheckState(0, Qt.Unchecked)
+            
 
             for name,info in modsInSection.items():
                 # Add child items
