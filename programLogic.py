@@ -135,5 +135,5 @@ def pipeLine(ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,
     #update.emit(modsFlattened)
     
     for modName in modsToDownload:
-        Mod(modName,defaultdict(lambda:None,modsFlattened[modName]),ownedPacks).downloadAndExtractMod("Downloads/",update)
+        Mod(modName,defaultdict(lambda:None,modsFlattened[modName]),ownedPacks).downloadAndExtractMod(path=userPath,update=update)
         stepsDone = updateProgress(progress,stepsDone,stepCount)
