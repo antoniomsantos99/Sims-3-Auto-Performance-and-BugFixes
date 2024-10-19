@@ -4,7 +4,7 @@
             "Link": "https://www.nraas.net/community/download/NRaas_ErrorTrap_P167_V100_Steam.zip",
             "LinkEA": "https://www.nraas.net/community/download/NRaas_ErrorTrap_P167_V100.zip",
             "FileName": "Nraas_ErrorTrap.zip",
-            "Description": " Error Trap is a mod that detects and catches corrupted data and lets save games be loaded/played and preventing crashes, Error trap will also create logs within the games documents folders to help narrow down the error cause."
+            "Description": "Error Trap is a mod that detects and catches corrupted data and lets save games be loaded/played and preventing crashes, Error trap will also create logs within the games documents folders to help narrow down the error cause."
         },
         "Overwatch": {
             "Link": "https://www.nraas.net/community/download/NRaas_Overwatch_V122.zip",
@@ -26,6 +26,9 @@
         "simler90's Gameplay Core Mod": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2045271&v=1725187477",
             "FileName": "simler90GameplayCoreMod-UPDATE206.7z",
+            "Dependencies": [
+                "DISABLED"
+            ],
             "Description": "Simler90's Gameplay Core Mod fixes a long list of issue and bugs with the base game and many of the expansion packs. (WARNING: This mod is incompatible with many of Nraas mods)"
         },
         "Sims need less Space": {
@@ -47,11 +50,13 @@
         },
         "Fewer automatic memories": {
             "Link": "https://chii.modthesims.info/getfile.php?file=1277277&v=1330683057",
-            "FileName": "MTS_velocitygrass_1277277_velocitygrass_only_important_memories.zip"
+            "FileName": "MTS_velocitygrass_1277277_velocitygrass_only_important_memories.zip",
+            "Description": "Makes only important memories recorded, memories like getting married or having a baby, this will help prevent save file bloating on long played saves."
         },
         "Tileable Items Shader FIX": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2011174&v=1619783721",
             "FileName": "Simsi45_Tileable_Items_Shader_FIX.rar",
+            "Description": "Fixes lighting shaders on certain tile-able items.",
             "filesPerEP": {
                 "EP1": "WORLD ADVENTURES - Tileable_Items_Shader_FIXED.package",
                 "EP3": "LATE NIGHT - Tileable_Items_Shader_FIXED.package",
@@ -88,7 +93,7 @@
         "Get to Know Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2089148&v=1720569960",
             "FileName": "GetToKnowFix.zip",
-            "Description": "Fixes the \"get to know\" interaction and how often sims discover traits of other sims. Also has an option to discover hidden traits.Consider supporting simbouquet for all their amazing work? You can HERE!"
+            "Description": "Fixes the \"get to know\" interaction and how often sims discover traits of other sims. Also has an option to discover hidden traits."
         },
         "Welcome Matt Deshined Rug": {
             "Link": "https://chii.modthesims.info/getfile.php?file=1901777&v=1580885257",
@@ -102,23 +107,25 @@
         },
         "BG Altitute Quantizer Stairs Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2010958&v=1619725508",
-            "FileName": "enablellamasAtomicAgeStairsFixDR.rar"
+            "FileName": "enablellamasAtomicAgeStairsFixDR.rar",
+            "Description": "Fixes a mesh issue when placing the set of stairs inside."
         },
         "Walk Cycle Edits": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2109191&v=1660529890",
             "FileName": "OVERRIDE_WalkCycleEdits.zip",
+            "Description": "Fixes an oversight with young adult males, adult males and elder males having the \"happy\" expression baked into their walking animations. They will now show their correct mood when walking and not just smiling even when sad.",
             "toOverride": true
         },
         "TS3: Facial Expressions Converted From The Sims Medieval": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2110670&v=1659365965",
             "FileName": "OVERRIDE_TSMtoTS3_FacialExpressions_AlternateVer.zip",
             "toOverride": true,
-            "Description": "changes 15 of the 20 base game facial animations with the ones from sims medieval. While not technically a bug fix it can fix clipping with certain facial animations like eye lashes going through sims brows when frowning and distorted facial features.Consider supporting simbouquet for all their amazing work? You can HERE!"
+            "Description": "changes 15 of the 20 base game facial animations with the ones from sims medieval. While not technically a bug fix it can fix clipping with certain facial animations like eye lashes going through sims brows when frowning and distorted facial features."
         },
         "Random Sim Fixes": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2118275&v=1682190864",
             "FileName": "ld_RandomSimFixes.zip",
-            "Description": "Fixes an issue were in the base game the game would give every generated sim the same default value for face customisation, voice and fitness. Also fixes non future world sims wearing into the future clothing. Only sims in the future world will now wear the clothing from into the future. (Into the future is not require for this mod to function)Consider supporting Lazy Duchess for all their amazing work? You can HERE!"
+            "Description": "Fixes an issue were in the base game the game would give every generated sim the same default value for face customisation, voice and fitness. Also fixes non future world sims wearing into the future clothing. Only sims in the future world will now wear the clothing from into the future. (Into the future is not require for this mod to function)"
         },
         "CAS Sim Bin Genetics as Presets": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2144107&v=1674711931",
@@ -139,26 +146,27 @@
                 "SP5": "MASTER SUITE STUFF - Unlocked Stencils.package",
                 "SP7": "DIESEL - Unlocked Stencils.package"
             },
-            "Description": "Fixes various objects missing their extra select-able stencils, they will now be un-hidden and select-able again.Consider supporting simsi45 for all their amazing work? You can HERE!"
+            "Description": "Fixes various objects missing their extra select-able stencils, they will now be un-hidden and select-able again."
         },
         "Fishing Box/Chest Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2203386&v=1705296853",
-            "FileName": "NanaBx3_fishingBoxChest_Fix.7z"
+            "FileName": "NanaBx3_fishingBoxChest_Fix.7z",
+            "Description": "Fixes an issue when fishing finding a fishing chest could never happen due to a bug."
         },
         "Cross-Eye Bug Fix": {
             "Link": "https://www.patreon.com/file?h=96833640&m=267232886",
             "FileName": "ld_CrossEyeFix.package",
-            "Description": "Fixes an issue were sims sometimes go cross-eyed after certain events like ageing up.Consider supporting Lazy Duchess for all their amazing work? You can HERE!"
+            "Description": "Fixes an issue were sims sometimes go cross-eyed after certain events like ageing up."
         },
         "Toddler Routing Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2231571&v=1722469129",
             "FileName": "TSS_ToddlerRoutingFix.rar",
-            "Description": "Fixes toddlers routing being cancelled when the failing interaction is triggered but it does not properly play resulting in all of their actions being cancelled when the fall down animation is meant to trigger.Consider supporting TheSweetSimmer for all their amazing work? You can HERE!"
+            "Description": "Fixes toddlers routing being cancelled when the failing interaction is triggered but it does not properly play resulting in all of their actions being cancelled when the fall down animation is meant to trigger."
         },
         "Pick Up Toddler Fixes": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2180477&v=1691859328",
             "FileName": "TSS_PickUpToddlerFix.rar",
-            "Description": "Fixes some issues with how sims would approach their task of picking up toddler sims.Consider supporting TheSweetSimmer for all their amazing work? You can HERE!"
+            "Description": "Fixes some issues with how sims would approach their task of picking up toddler sims."
         }
     },
     "World Adventures Bug Fixes": {
@@ -179,7 +187,7 @@
                 "EP2",
                 "EP8"
             ],
-            "Description": "Fixes an issue/oversight with the cloths on the clothesline drying even when being rained on during rainy weather. Download the \"Gamefreak130_NoMagicClothesline.rar\" File from the file section! Seasons is required!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+            "Description": "Fixes an issue/oversight with the cloths on the clothesline drying even when being rained on during rainy weather. Download the \"Gamefreak130_NoMagicClothesline.rar\" File from the file section! Seasons is required!"
         },
         "Harvester Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2185496&v=1694566388",
@@ -230,7 +238,8 @@
             "FileName": "PTS3_ThomasRiordan_paintingGenAwkwardFamilyPhotoFixed.zip",
             "Dependencies": [
                 "EP4"
-            ]
+            ],
+            "Description": "Fixes an issue were you could only use one of the texture variants of certain paintings."
         },
         "Generations Shirt & Sweater Top - Channel Fix": {
             "Link": "https://cdn.simfileshare.net/download/3163449/?dl",
@@ -255,7 +264,8 @@
             "FileName": "MM_PetTombstoneShadowFix.zip",
             "Dependencies": [
                 "EP5"
-            ]
+            ],
+            "Description" : "Fixes badly rendered shadows on the pet tombstones."
         },
         "Fixed horse tails (no more shiny horses!)": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2002450&v=1617483516",
@@ -263,7 +273,7 @@
             "Dependencies": [
                 "EP5"
             ],
-            "Description": "Fixes issues with horses being shiny due to specular shininess being set wrong on horses tails.Consider supporting simsi45  for all their amazing work? You can HERE!"
+            "Description": "Fixes issues with horses being shiny due to specular shininess being set wrong on horses tails."
         }
     },
     "University Life Bug Fixes": {
@@ -325,7 +335,8 @@
             "FileName": "fast raking.rar",
             "Dependencies": [
                 "EP8"
-            ]
+            ],
+            "Description": "Makes raking leaves faster and removes all leaves in the world after fall has ended."
         },
         "No more ugly snowprints": {
             "Link": "https://chii.modthesims.info/getfile.php?file=1882118&v=1572098501",
@@ -334,7 +345,7 @@
                 "EP8"
             ],
             "toOverride": true,
-            "Description": "fixes the ugly miss match of snow textures around certain objects.Consider supporting Lyralei for all their amazing work? You can HERE!"
+            "Description": "fixes the ugly miss match of snow textures around certain objects."
         },
         "Spring Cleaning Weather Forecast Tweaks": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2094426&v=1653335474",
@@ -342,7 +353,7 @@
             "Dependencies": [
                 "EP8"
             ],
-            "Description": "Fixes issues with the rain weather type appearing way too often in the summer season. The mod also makes the weather forecast more accurate and easy to read! Download the \"Gamefreak130_WeatherForecastTweaks.rar\" File from the downloads section!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+            "Description": "Fixes issues with the rain weather type appearing way too often in the summer season. The mod also makes the weather forecast more accurate and easy to read! Download the \"Gamefreak130_WeatherForecastTweaks.rar\" File from the downloads section!"
         },
         "Spring Cleaning Truly Eclipsing Fog": {
             "Link": "https://chii.modthesims.info/getfile.php?file=2094425&v=1651857097",
@@ -350,7 +361,7 @@
             "Dependencies": [
                 "EP8"
             ],
-            "Description": "Fixes issues with the weather stone vampire weather and how it was not applying the correct buffs to vampires. Download the \"Gamefreak130_TrulyEclipsingFog.rar\" file from the file section!Consider supporting gamefreak130 for all their amazing work? You can HERE!"
+            "Description": "Fixes issues with the weather stone vampire weather and how it was not applying the correct buffs to vampires. Download the \"Gamefreak130_TrulyEclipsingFog.rar\" file from the file section!"
         }
     },
     "Island Paradise Bug Fixes": {
@@ -375,7 +386,8 @@
             "FileName": "GoAndPlayInOceanFix.zip",
             "Dependencies": [
                 "EP10"
-            ]
+            ],
+            "Description": "Prevents sims from autonomously attempting to play in the ocean outside of beach and resort lots this will help with routing issues."
         }
     },
     "Into the Future Bug Fixes": {
@@ -383,7 +395,7 @@
             "Link": "https://chii.modthesims.info/getfile.php?file=1869799&v=1567127881",
             "FileName": "heaven_ITFfenceFix.rar",
             "Dependencies": [
-                "EP11"
+                "EP8","EP11"
             ],
             "Description": "Fixes the snow placement on the fence during winter (seasons expansion required)"
         },
@@ -392,7 +404,8 @@
             "FileName": "MTS_simsaddict777_lazerharp_FIX.rar",
             "Dependencies": [
                 "EP11"
-            ]
+            ],
+            "Description": "Fixes an issue were the object would not put up the fun meter for sims who were watching unlike other musical items in the game."
         }
     },
     "Store Item Bug Fixes": {
@@ -402,7 +415,7 @@
             "Dependencies": [
                 "STORE"
             ],
-            "Description": "Fixes a type with the gain moodlets from the new objects.Consider Supporting gamefreak130 for all their amazing work? You can HERE!"
+            "Description": "Fixes a type with the gain moodlets from the new objects."
         },
         "Banquett Fan Routing Fix": {
             "Link": "https://chii.modthesims.info/getfile.php?file=1295940&v=1337841449",
