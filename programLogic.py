@@ -92,7 +92,6 @@ def flushDCBackup(path:str,update):
 
 def updateProgress(progress,stepsDone,totalSteps):
     stepsDone+=1
-    print(stepsDone)
     progress.emit(int((stepsDone/totalSteps)*100))
     return stepsDone
 

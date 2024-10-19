@@ -107,15 +107,13 @@ class Ui_Window(object):
 
     def on_pipeline_finished(self):
         # Code to execute when the pipeline finishes (e.g., update UI or show a message)
-        self.worker.update.emit("Pipeline finished")
+        self.worker.update.emit("Execution finished")
 
 
     def update_progress_bar(self, value):
-        print("Progress",value)
         self.progressBar.setValue(value)
     
     def on_update(self,text : str):
-        print("Update", text)
         self.SystemOutput.append(str(text))
 
     def setupUi(self, Window):
