@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QApplication, QDialog, QDialogButtonBox, QGridLay
 
 # Step 1: Create a Worker class inheriting from QThread
 class Worker(QThread):
-    # Signal to notify when the task is done (optional, if you want to update the UI)
+    # Signal to notify when the task is done
     finished = Signal()
     update = Signal(str)
     progress = Signal(int)
@@ -35,6 +35,7 @@ class Worker(QThread):
 # UI Class to define the layout and components of the window
 class Ui_Window(object):
 
+    #Automatic retrieval of user files folder 
     def getUserFolder(self):
         possibleUserFolders : list = []
         for path in list(Path("~/Documents/Electronic Arts").expanduser().iterdir()):
@@ -46,6 +47,7 @@ class Ui_Window(object):
         
         return str(userFolder)
     
+    #Select actions automatically by checking dependencies
     def smartSelection(self):
         path = self.GameFilesLineEdit.text()
         
@@ -105,7 +107,8 @@ class Ui_Window(object):
 
     def on_pipeline_finished(self):
         # Code to execute when the pipeline finishes (e.g., update UI or show a message)
-        print("Pipeline finished")
+        self.worker.update.emit("Pipeline finished")
+
 
     def update_progress_bar(self, value):
         print("Progress",value)
@@ -120,10 +123,6 @@ class Ui_Window(object):
         Window.resize(1200, 800)
 
         self.ownedPacks = set()
-        # Create an action (can be connected to functionality later)
-        self.actionTeste = QAction(Window)
-        self.actionTeste.setCheckable(True)
-        self.actionTeste.setObjectName("actionTeste")
 
         # Set up the grid layout
         self.gridLayout = QGridLayout(Window)
@@ -176,7 +175,6 @@ class Ui_Window(object):
 
     def retranslateUi(self, Window):
         Window.setWindowTitle(QCoreApplication.translate("Window", "Sims 3 Performance Fixes Assistant", None))
-        self.actionTeste.setText(QCoreApplication.translate("Window", "Test Action", None))
 
     def yesToAll(self):
         for section in self.ComponentsDic.values():
