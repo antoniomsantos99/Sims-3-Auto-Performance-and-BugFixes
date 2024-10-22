@@ -66,7 +66,7 @@ class Mod:
             return 1
         except:
             update.emit(f"Download {self.fileName} failed ({retry} out of 5 tries)")
-            self.downloadAndExtractMod(path,update,retry+1)
+            self.downloadAndExtractMod(path,isEA,update,retry+1)
         
     
     def downloadAndExtractModWithFileMap(self,fileMap,isEA,update):
