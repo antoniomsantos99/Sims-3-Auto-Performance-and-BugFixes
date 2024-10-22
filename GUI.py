@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import re
+import requests
 
 import programLogic
 
@@ -293,11 +294,19 @@ if __name__ == "__main__":
     
     import json
 
-    with open("mods.json","r") as f:
-        mods = json.load(f)
+    if os.path.exists("mods.json"):
+        with open("mods.json","r") as f:
+            mods = json.load(f)
+    else:
+        print("Downloading mods list")
+        mods = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/mods.json").json()
 
-    with open("steps.json","r") as f:
-        steps = json.load(f)
+    if os.path.exists("steps.json"):
+        with open("steps.json","r") as f:
+            steps = json.load(f)
+    else:
+        print("Downloading steps list")
+        steps = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/steps.json").json()
 
     # Create and show the window
     window = MyWindow()
