@@ -1,10 +1,11 @@
 # Sims 3 Auto Performance and BugFixes (Name not final)
 
-## ⚠️ - This software is still in development! Expect crashes and while the program tries to backup important files currently a manual backup is advised.
-
 Ever get the itch to play The Sims 3, but the hassle of tweaking settings and installing mods just put you off? Same here! Instead of spending 20 minutes doing it manually, I ended up spending a week automating it. So, now you can keep your game running smoothly by 2024 standards with hardly any effort!
 
 This software currently executes the steps defined in the following [guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1131162350) (thanks to [Anime_Boom](https://steamcommunity.com/profiles/76561198115872149)).
+
+## ⚠️ - This software is still in development! Expect crashes and while the program tries to backup important files currently a manual backup is advised. 
+By using this software, you agree that the author or any associated parties are not responsible for any loss or damage, including but not limited to loss of data or equipment damage, that may result from the use or misuse of the software.
 
 ## Features
 * Auto detection of the game's user files
