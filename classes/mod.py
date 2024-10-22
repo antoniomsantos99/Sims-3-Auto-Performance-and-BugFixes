@@ -43,11 +43,11 @@ class Mod:
                 return -1
             
             if not path:
-                path = f"Download/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
+                dest = f"Download/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
             else:
-                path = f"{path}/Mods/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
+                dest = f"{path}/Mods/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
 
-            os.makedirs(path, exist_ok=True)
+            os.makedirs(dest, exist_ok=True)
             EPDependentFiles =  dict((v,k) for k,v in self.filesPerEP.items()) if self.filesPerEP else {}
 
             if self.fileName.endswith(".zip") or self.fileName.endswith(".rar") or self.fileName.endswith(".7z"):
@@ -55,17 +55,18 @@ class Mod:
                 fileList = archive.filelist if self.fileName.endswith(".zip") else archive.infolist()
                 for fileInfo in fileList:
                     if fileInfo.filename not in EPDependentFiles or EPDependentFiles[fileInfo.filename] in self.ownedPacks:
-                        update.emit(f"Extracting {fileInfo.filename} to {path}")
-                        archive.extract(fileInfo,path)
+                        update.emit(f"Extracting {fileInfo.filename} to {dest}")
+                        archive.extract(fileInfo,dest)
                 archive.close()
             else:
-                with open(path+self.fileName,"wb") as f:
+                with open(dest+self.fileName,"wb") as f:
                     update.emit(f"Writing {self.fileName} to {path}")
                     f.write(req.content)
 
             return 1
-        except:
+        except Exception as e:
             update.emit(f"Download {self.fileName} failed ({retry} out of 5 tries)")
+            print(e)
             self.downloadAndExtractMod(path,isEA,update,retry+1)
         
     
