@@ -18,7 +18,7 @@ class Worker(QThread):
     progress = Signal(int)
     
 
-    def __init__(self, ownedPacks, stepsToDo, modsToDownload, userFiles, gameFiles, originalVRAM,gameVersion):
+    def __init__(self, modsJson, ownedPacks, stepsToDo, modsToDownload, userFiles, gameFiles, originalVRAM,gameVersion):
         super().__init__()
         self.ownedPacks = ownedPacks
         self.stepsToDo = stepsToDo
@@ -27,17 +27,35 @@ class Worker(QThread):
         self.gameFiles = gameFiles
         self.originalVRAM = originalVRAM
         self.gameVersion = gameVersion
+        self.modsJson = modsJson
 
     def run(self):
         self.update.emit(f"Game Version: {self.gameVersion} ({"Steam" if self.gameVersion.startswith("1.67") else "EA"})")
         # Call your pipeline logic in this thread
-        programLogic.pipeLine(self.gameVersion,self.ownedPacks, self.stepsToDo, self.modsToDownload, self.userFiles, self.gameFiles, self.originalVRAM,self.progress,self.update)
+        programLogic.pipeLine(self.modsJson, self.gameVersion,self.ownedPacks, self.stepsToDo, self.modsToDownload, self.userFiles, self.gameFiles, self.originalVRAM,self.progress,self.update)
         # Emit signal when done
         self.finished.emit()
 
 
 # UI Class to define the layout and components of the window
 class Ui_Window(object):
+
+    def getInfo(self):
+        import json
+
+        if os.path.exists("mods.json"):
+            with open("mods.json","r") as f:
+                self.mods = json.load(f)
+        else:
+            print("Downloading mods list")
+            self.mods = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/mods.json").json()
+
+        if os.path.exists("steps.json"):
+            with open("steps.json","r") as f:
+                self.steps = json.load(f)
+        else:
+            print("Downloading steps list")
+            self.steps = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/steps.json").json()
 
     #Automatic retrieval of user files folder 
     def getUserFolder(self):
@@ -77,7 +95,7 @@ class Ui_Window(object):
 
 
 
-        for modsInSection in mods.values():
+        for modsInSection in self.mods.values():
             for name,info in modsInSection.items():
                 dependencies = [] if "Dependencies" not in info else info["Dependencies"]  
                 if self.ownedPacks.issuperset(dependencies):
@@ -110,7 +128,7 @@ class Ui_Window(object):
                 modsToDownload.append(k)
         
       # Step 3: Create the worker thread and pass the necessary arguments
-        self.worker = Worker(self.ownedPacks, stepsToDo, modsToDownload, self.UserFilesLineEdit.text(),self.GameFilesLineEdit.text(),self.originalVRAM,self.gameVersion)
+        self.worker = Worker(self.mods,self.ownedPacks, stepsToDo, modsToDownload, self.UserFilesLineEdit.text(),self.GameFilesLineEdit.text(),self.originalVRAM,self.gameVersion)
         self.worker.finished.connect(self.on_pipeline_finished)
         self.worker.progress.connect(self.update_progress_bar)
         self.worker.update.connect(self.on_update)
@@ -132,6 +150,7 @@ class Ui_Window(object):
         Window.setObjectName("Window")
         Window.resize(1200, 800)
 
+        self.getInfo()
         self.ownedPacks = set()
 
         # Set up the grid layout
@@ -230,7 +249,7 @@ class Ui_Window(object):
 
         self.ComponentsDic["Steps"] = {}
 
-        for section, stepsInSection in steps.items():
+        for section, stepsInSection in self.steps.items():
             parentItem = QTreeWidgetItem(self.Components)
             parentItem.setExpanded(True)
             parentItem.setText(0, section)
@@ -264,7 +283,7 @@ class Ui_Window(object):
             
             
         self.ComponentsDic["Mods"] = {}
-        for section,modsInSection in mods.items():
+        for section,modsInSection in self.mods.items():
             # Create a parent item in the tree widget
             parentItem = QTreeWidgetItem(self.Components)
             parentItem.setExpanded(True)
@@ -291,22 +310,6 @@ class MyWindow(QDialog, Ui_Window):
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    
-    import json
-
-    if os.path.exists("mods.json"):
-        with open("mods.json","r") as f:
-            mods = json.load(f)
-    else:
-        print("Downloading mods list")
-        mods = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/mods.json").json()
-
-    if os.path.exists("steps.json"):
-        with open("steps.json","r") as f:
-            steps = json.load(f)
-    else:
-        print("Downloading steps list")
-        steps = requests.get("https://raw.githubusercontent.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/refs/heads/main/steps.json").json()
 
     # Create and show the window
     window = MyWindow()

@@ -95,7 +95,7 @@ def updateProgress(progress,stepsDone,totalSteps):
     progress.emit(int((stepsDone/totalSteps)*100))
     return stepsDone
 
-def pipeLine(gameVersion,ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,progress,update):
+def pipeLine(modsJson,gameVersion,ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,progress,update):
     maxFPS = int(stepsToDo["MaxFPS"])
     vRAM = int(stepsToDo["MoreGPU"])
 
@@ -126,10 +126,8 @@ def pipeLine(gameVersion,ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,o
         stepsDone = updateProgress(progress,stepsDone,stepCount)
 
 
-    with open("mods.json","r") as f:
-        sectionedMods = json.load(f)
     modsFlattened = {}
-    for section in sectionedMods.values():
+    for section in modsJson.values():
         for name,mod in section.items():
             modsFlattened[name] = mod
 
