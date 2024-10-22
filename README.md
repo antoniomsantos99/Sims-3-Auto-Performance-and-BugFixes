@@ -1,6 +1,6 @@
 # Sims 3 Auto Performance and BugFixes (Name not final)
 
-# ⚠️ - This software is still in development! Expect crashes and while the program tries to backup important files currently a manual backup is advised.
+## ⚠️ - This software is still in development! Expect crashes and while the program tries to backup important files currently a manual backup is advised.
 
 Ever get the itch to play The Sims 3, but the hassle of tweaking settings and installing mods just put you off? Same here! Instead of spending 20 minutes doing it manually, I ended up spending a week automating it. So, now you can keep your game running smoothly by 2024 standards with hardly any effort!
 
