@@ -30,7 +30,7 @@ class Worker(QThread):
     def run(self):
         self.update.emit(f"Game Version: {self.gameVersion} ({"Steam" if self.gameVersion.startswith("1.67") else "EA"})")
         # Call your pipeline logic in this thread
-        programLogic.pipeLine(self.ownedPacks, self.stepsToDo, self.modsToDownload, self.userFiles, self.gameFiles, self.originalVRAM,self.progress,self.update)
+        programLogic.pipeLine(self.gameVersion,self.ownedPacks, self.stepsToDo, self.modsToDownload, self.userFiles, self.gameFiles, self.originalVRAM,self.progress,self.update)
         # Emit signal when done
         self.finished.emit()
 

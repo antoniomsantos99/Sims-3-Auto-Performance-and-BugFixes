@@ -4,7 +4,7 @@ import os
 import pathlib
 import json
 
-def smoothPatch(tps:int,fps:int,borderless:bool,path:str,update):
+def smoothPatch(isEA:bool,tps:int,fps:int,borderless:bool,path:str,update):
     #Create Mod Object for smoothPatch
     smoothPatch = defaultdict(lambda:None, {
     "Link": "https://chii.modthesims.info/getfile.php?file=2124160&v=1706733391",
@@ -18,7 +18,7 @@ def smoothPatch(tps:int,fps:int,borderless:bool,path:str,update):
         "ddraw.dll":f"{path}/Game/Bin",
         "TS3Patch.asi":f"{path}/Game/Bin",
         "TS3Patch.txt":f"{path}/Game/Bin"
-    },update)
+    },isEA,update)
 
     #Changing values if needed.
     if tps != 500 or fps != 0 or borderless:
@@ -95,15 +95,17 @@ def updateProgress(progress,stepsDone,totalSteps):
     progress.emit(int((stepsDone/totalSteps)*100))
     return stepsDone
 
-def pipeLine(ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,progress,update):
+def pipeLine(gameVersion,ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,progress,update):
     maxFPS = int(stepsToDo["MaxFPS"])
     vRAM = int(stepsToDo["MoreGPU"])
 
     stepCount = stepsToDo["Smooth Patch"] + stepsToDo["IntelFix"] + (stepsToDo["MoreCPU"] or int(originalVRAM) != vRAM) + stepsToDo["FlushDCBackup"] + stepsToDo["Stopping Store Generated Jpgs"] + (len(modsToDownload))
     stepsDone = 0
 
+    isEA = not gameVersion.startswith("1.67") 
+
     if stepsToDo["Smooth Patch"]:
-        smoothPatch(1000,maxFPS,stepsToDo["Borderless"],gamePath,update)
+        smoothPatch(isEA,1000,maxFPS,stepsToDo["Borderless"],gamePath,update)
         stepsDone = updateProgress(progress,stepsDone,stepCount)
 
     
@@ -134,5 +136,5 @@ def pipeLine(ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,
     #update.emit(modsFlattened)
     
     for modName in modsToDownload:
-        Mod(modName,defaultdict(lambda:None,modsFlattened[modName]),ownedPacks).downloadAndExtractMod(path=userPath,update=update)
+        Mod(modName,defaultdict(lambda:None,modsFlattened[modName]),ownedPacks).downloadAndExtractMod(path=userPath,isEA=isEA,update=update)
         stepsDone = updateProgress(progress,stepsDone,stepCount)

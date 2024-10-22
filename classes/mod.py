@@ -31,14 +31,14 @@ class Mod:
         with open(path+self.fileName,"wb") as f:
             f.write(req.content)
 
-    def downloadAndExtractMod(self,path=None,update=None,retry=0):
+    def downloadAndExtractMod(self,path=None,isEA=False,update=None,retry=0):
         if retry > 5:
             update.emit(f"Download failed, skipping!")
             return -1
 
-        update.emit(f"Downloding {self.fileName} from {self.link}")
+        update.emit(f"Downloding {self.fileName} from {self.linkEA if isEA else self.link}")
         try:
-            req = requests.get(self.link)
+            req = requests.get(self.linkEA if isEA else self.link)
             if req.status_code != 200:
                 return -1
             
@@ -69,9 +69,10 @@ class Mod:
             self.downloadAndExtractMod(path,update,retry+1)
         
     
-    def downloadAndExtractModWithFileMap(self,fileMap,update):
-        update.emit(f"Downloding {self.fileName} from {self.link}")
-        req = requests.get(self.link)
+    def downloadAndExtractModWithFileMap(self,fileMap,isEA,update):
+        update.emit(f"Downloding {self.fileName} from {self.linkEA if isEA else self.link}")
+        req = requests.get(self.linkEA if isEA else self.link)
+
         if req.status_code != 200:
             return -1
                
