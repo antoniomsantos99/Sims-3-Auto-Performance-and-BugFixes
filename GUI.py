@@ -1,9 +1,10 @@
 from pathlib import Path
 import os
+import re
 
 import programLogic
 
-from PySide6.QtCore import QCoreApplication, QMetaObject, Qt, QProcess, QThread,Signal,Slot
+from PySide6.QtCore import QCoreApplication, QMetaObject, Qt, QProcess, QThread,Signal,Slot, QSize
 from PySide6.QtGui import QAction, QFont, QCursor
 from PySide6.QtWidgets import (QApplication, QDialog, QDialogButtonBox, QGridLayout, QLabel, QLineEdit,
                                QListWidget, QProgressBar, QPushButton, QTreeWidget, QTreeWidgetItem, QFileDialog,QTextBrowser)
@@ -16,7 +17,7 @@ class Worker(QThread):
     progress = Signal(int)
     
 
-    def __init__(self, ownedPacks, stepsToDo, modsToDownload, userFiles, gameFiles, originalVRAM):
+    def __init__(self, ownedPacks, stepsToDo, modsToDownload, userFiles, gameFiles, originalVRAM,gameVersion):
         super().__init__()
         self.ownedPacks = ownedPacks
         self.stepsToDo = stepsToDo
@@ -24,8 +25,10 @@ class Worker(QThread):
         self.userFiles = userFiles
         self.gameFiles = gameFiles
         self.originalVRAM = originalVRAM
+        self.gameVersion = gameVersion
 
     def run(self):
+        self.update.emit(f"Game Version: {self.gameVersion} ({"Steam" if self.gameVersion.startswith("1.67") else "EA"})")
         # Call your pipeline logic in this thread
         programLogic.pipeLine(self.ownedPacks, self.stepsToDo, self.modsToDownload, self.userFiles, self.gameFiles, self.originalVRAM,self.progress,self.update)
         # Emit signal when done
@@ -47,6 +50,7 @@ class Ui_Window(object):
         
         return str(userFolder)
     
+
     #Select actions automatically by checking dependencies
     def smartSelection(self):
         path = self.GameFilesLineEdit.text()
@@ -58,6 +62,11 @@ class Ui_Window(object):
         except:
             pass
 
+        # Retrieve game version
+        with open(f"{path}/Game/Bin/skuversion.txt","r") as f:
+            self.gameVersion = re.match(r"GameVersion = (\d+.*)",f.read()).group(1)
+
+        # Get GraphicsRules information to set initial values
         with open(f"{path}/Game/Bin/GraphicsRules.sgr","r") as f:
             for line in f.readlines():
                 if "seti textureMemory" in line:
@@ -80,6 +89,8 @@ class Ui_Window(object):
             
     def startPipeline(self):
 
+        
+
         stepsToDo = {"Smooth Patch":self.ComponentsDic["Steps"]["Download Smooth Patch"].checkState(3)._value_ == 2,
                      "MaxFPS":self.ComponentsDic["Steps"]["Set FPS Limit"].text(3),
                      "Borderless":self.ComponentsDic["Steps"]["Borderless"].checkState(3)._value_ == 2,
@@ -98,7 +109,7 @@ class Ui_Window(object):
                 modsToDownload.append(k)
         
       # Step 3: Create the worker thread and pass the necessary arguments
-        self.worker = Worker(self.ownedPacks, stepsToDo, modsToDownload, self.UserFilesLineEdit.text(),self.GameFilesLineEdit.text(),self.originalVRAM)
+        self.worker = Worker(self.ownedPacks, stepsToDo, modsToDownload, self.UserFilesLineEdit.text(),self.GameFilesLineEdit.text(),self.originalVRAM,self.gameVersion)
         self.worker.finished.connect(self.on_pipeline_finished)
         self.worker.progress.connect(self.update_progress_bar)
         self.worker.update.connect(self.on_update)
@@ -141,6 +152,7 @@ class Ui_Window(object):
         self.SystemOutput = QTextBrowser(Window)
         self.SystemOutput.setObjectName("SystemOutput")
         self.gridLayout.addWidget(self.SystemOutput, 3, 0, 1, 2)
+        self.SystemOutput.resize(100,100)
 
         # Add a tree widget for components
         self.Components = QTreeWidget(Window)
