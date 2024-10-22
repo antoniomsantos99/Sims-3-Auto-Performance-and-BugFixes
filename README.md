@@ -18,7 +18,7 @@ I do not consider the current version as finished and still plan to do the follo
 - [ ] Automatically detect game files location if possible
 - [ ] Release a self-contained executable
 - [ ] Add support for multiple languages (maybe?)
-- [ ] Add support for EA App version (Need tester)
+- [x] Add support for EA App version (Need tester)
 - [ ] Add support for MacOS and Linux (Need testers)
 
 ## How to run? (In development)
@@ -29,6 +29,12 @@ Python 3.6 or newer is required and currently this software is only available on
 * Install [Python](https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe)
 * Install dependencies by running the following command: `pip install -r requirements.txt`
 * Run GUI.py: `python GUI.py`
+
+## Contribute
+Looking to contribute? Currently there are not many rules!
+
+* If looking to contribute in the development just create a pull request and i'll review it.
+* If you found a bug then create an issue with the steps to reproduce it and i'll try to squash it away!
 
 ## Credits (In development)
 This program would not be possible without the work of the following people:
