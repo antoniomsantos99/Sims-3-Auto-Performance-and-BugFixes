@@ -32,6 +32,19 @@ Python 3.6 or newer is required and currently this software is only available on
 * Run GUI.py: `python GUI.py`
   
 
+## Alternative way to run (In development)
+
+* Double click on `run_windows.bat`
+
+    ![batch](/images/batch_windows.png)
+
+
+This will run a batch script that checks your python version, and provides a link if you don't have it installed. 
+
+If you have python correctly set up, the script will continue, installing dependencies and opening the GUI.
+
+![GUI](/images/gui.png)
+
 ## Project status
 This project is currently in:
 
