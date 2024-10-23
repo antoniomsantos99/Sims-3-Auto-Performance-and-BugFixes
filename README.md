@@ -45,7 +45,6 @@ This project is currently in:
 
 ~~Maintenance mode - My main focus is to refactor the code and fix bugs.~~
 
-
 ## Contribute
 Looking to contribute? Currently there are not many rules!
 
