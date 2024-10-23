@@ -30,7 +30,13 @@ Python 3.6 or newer is required and currently this software is only available on
 * Install [Python](https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe)
 * Install dependencies by running the following command: `pip install -r requirements.txt`
 * Run GUI.py: `python GUI.py`
-  
+
+Alternative:
+* Double click on `run_windows.bat`
+
+This will run a batch script that checks your python version, and provides a link if you don't have it installed. 
+
+If you have python correctly set up, the script will continue, installing dependencies and opening the GUI.
 
 ## Project status
 This project is currently in:
