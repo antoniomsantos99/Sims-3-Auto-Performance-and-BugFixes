@@ -60,14 +60,15 @@ class Ui_Window(object):
     #Automatic retrieval of user files folder 
     def getUserFolder(self):
         possibleUserFolders : list = []
+        userFolder=""
         for path in list(Path("~/Documents/Electronic Arts").expanduser().iterdir()):
             if "Sims 3" in path.name:
                 possibleUserFolders.append(path)
 
         if len(possibleUserFolders) == 1:
-            userFolder = possibleUserFolders[0]
+            userFolder = str(possibleUserFolders[0])
         
-        return str(userFolder)
+        return userFolder
     
 
     #Select actions automatically by checking dependencies
