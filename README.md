@@ -25,9 +25,9 @@ I do not consider the current version as finished and still plan to do the follo
 ## How to run? (In development)
 You can either download the self-contained program found [here](https://github.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/releases). Or by setting the environment yourself by doing the following:
 
-Python 3.6 or newer is required and currently this software is only available on windows.
+Python 3.12 required and currently this software is only available on windows.
 
-* Install [Python](https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe)
+* Install [Python](https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe)
 * Install dependencies by running the following command: `pip install -r requirements.txt`
 * Run GUI.py: `python GUI.py`
 
@@ -57,7 +57,182 @@ This program would not be possible without the work of the following people:
 
 <div align="center">
 <img src="https://images.weserv.nl/?url=https://avatars.fastly.steamstatic.com/1834c2e80adbf31db81bda76d958c1d7438d8f40_full.jpg?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
-Anime_Boom : Author of the guide used in this program.
+
+  [Anime_Boom](https://steamcommunity.com/profiles/76561198115872149) : Author of the [guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1131162350) used in this program.
+  
 </div>
 
 ### Mod developers
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar8902314_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Arsil](https://modthesims.info/m/8902314)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar2004779_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[AussomeDays](https://modthesims.info/m/2004779)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar432522_5.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Buzzler](https://modthesims.info/m/432522)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar3410892_126.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[CircusWolf](https://modthesims.info/m/3410892)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar3123915_43.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Don Babilon](https://modthesims.info/m/3123915)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar10124945_5.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[LazyDuchess](https://modthesims.info/m/10124945) - You can donate to: [Patreon](https://www.patreon.com/lazyduchess)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar8494591_5.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Lyralei](https://modthesims.info/m/8494591) - You can donate to: [Patreon](https://www.patreon.com/lyralei)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar59363_6.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Menaceman44](https://modthesims.info/m/59363)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar8515713_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[MoominMariah](https://modthesims.info/m/8515713)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar10356346_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[NanaBx3](https://modthesims.info/m/10356346)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar138496_34.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Nysha](https://modthesims.info/m/138496)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar10288520_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[OhRudi](https://modthesims.info/m/10288520)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://spng.pngfind.com/pngs/s/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Personcalledjoy](https://modthesims.info/m/6829715)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar3093732_25.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Qahne](https://modthesims.info/m/3093732)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar2975856_19.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[Robodl95](https://modthesims.info/m/2975856)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar9372403_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[SpotlessLeopard](https://modthesims.info/m/9372403)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar9760205_69.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[TheSweetSimmer](https://modthesims.info/m/9760205) - You can donate to: [Patreon](https://www.patreon.com/SweetSavanita/posts)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar469_3.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[ThomasRiordan](https://modthesims.info/m/469)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://spng.pngfind.com/pngs/s/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[celtysims](https://modthesims.info/m/10015119)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://spng.pngfind.com/pngs/s/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[dividingbyzero](https://modthesims.info/m/3655397)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar8968086_2.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[enable_llamas](https://modthesims.info/m/8968086)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://spng.pngfind.com/pngs/s/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[fantuanss12](https://modthesims.info/m/10230598)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar8048890_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[gamefreak130](https://modthesims.info/m/8048890) - You can donate to: [Patreon](https://www.patreon.com/Gamefreak130)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar2650007_17.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[heaven](https://modthesims.info/m/2650007)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar69056_5.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[lavsm](https://modthesims.info/m/69056)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar9012068_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[marydehoyos](https://modthesims.info/m/9012068)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar3274054_19.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[mikey](https://modthesims.info/m/3274054)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar4274361_9.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[nikel23](https://modthesims.info/m/4274361)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar1066235_11.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[omegastarr82](https://modthesims.info/m/1066235)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://spng.pngfind.com/pngs/s/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[phantom99](https://modthesims.info/m/10300444)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar10252531_6.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[simbouquet](https://modthesims.info/m/10252531) - You can donate to: [Ko-fi](https://ko-fi.com/simbouquet)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar10023119_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[simler90](https://modthesims.info/m/10023119) - You can donate to: [Ko-fi](https://ko-fi.com/simler90)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar6871476_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[simsaddict777](https://modthesims.info/m/6871476)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar7375828_3.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[simsi45](https://modthesims.info/m/7375828) - You can donate to: [Patreon](https://www.patreon.com/simsi45)
+
+
+<img align="left" width="30" src="https://images.weserv.nl/?url=https://static.modthesims2.com/customavatars/avatar3045250_1.gif?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" /> 
+
+[velocitygrass](https://modthesims.info/m/3045250)
