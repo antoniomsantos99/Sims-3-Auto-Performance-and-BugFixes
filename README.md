@@ -1,6 +1,10 @@
-# Sims 3 Auto Performance and BugFixes (Name not final)
+# Sims 3 Auto Performance and BugFixes (Name not final) 
+
+
 
 Ever get the itch to play The Sims 3, but the hassle of tweaking settings and installing mods just put you off? Same here! Instead of spending 20 minutes doing it manually, I ended up spending a week automating it. So, now you can keep your game running smoothly by 2024 standards with hardly any effort!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z5157VSA)
 
 This software currently executes the steps defined in the following [guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1131162350) (thanks to [Anime_Boom](https://steamcommunity.com/profiles/76561198115872149)).
 
@@ -58,7 +62,9 @@ This program would not be possible without the work of the following people:
 <div align="center">
 <img src="https://images.weserv.nl/?url=https://avatars.fastly.steamstatic.com/1834c2e80adbf31db81bda76d958c1d7438d8f40_full.jpg?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d"/>
 
-  [Anime_Boom](https://steamcommunity.com/profiles/76561198115872149) : Author of the [guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1131162350) used in this program.
+  [Anime_Boom](https://steamcommunity.com/profiles/76561198115872149) : Author of the [guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1131162350) used in this program. 
+  
+  If you want to support him you can award his steam guides with points!
   
 </div>
 
