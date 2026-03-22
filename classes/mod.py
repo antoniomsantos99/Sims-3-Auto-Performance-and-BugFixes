@@ -2,7 +2,7 @@ import requests
 
 import io
 from collections import defaultdict
-from classes.archiveHandler import PlainHandler, ZipHandler, RarHandler, SevenZipHandler, ArchiveHandler
+from classes.archiveHandler import PlainHandler, ZipHandler, RarHandler, SevenZipHandler, ArchiveHandler, TarHandler
 
 import os
 
@@ -17,6 +17,7 @@ class Mod:
         self.toOverride : bool = dic["toOverride"]
         self.filesPerEP = dic["filesPerEP"]
         self.ownedPacks : set = ownedPacks
+        self.download = None
 
     def __repr__(self):
         return repr(f'''Name: {self.name} | Filename: {self.fileName} | Link: {self.link} | LinkEA: {self.linkEA} | toOverride: {self.toOverride} | filesPerEP: {self.filesPerEP}''')
@@ -30,26 +31,30 @@ class Mod:
                 return RarHandler(response.content,destination,self.fileName)
             case "7z":
                 return SevenZipHandler(response.content,destination,self.fileName)
+            case "gz":
+                return TarHandler(response.content,destination,self.fileName)
             case _:
                 return PlainHandler(response.content,destination,self.fileName)
 
     def handleMod(self,destination,isEA,console,tries=1):
-
         if tries > 5:
             return -1
 
         try:
-            link = self.linkEA if isEA else self.link
+            # To prevent redownloading the same mod multiple times lets save it in the object
+            if(self.download is None):
+                link = self.linkEA if isEA else self.link
 
-            console.emit(f"Start downloading {self.fileName} from {link}")
-            req = requests.get(self.link,headers)
+                console.emit(f"Start downloading {self.fileName} from {link}")
+                req = requests.get(self.link,headers)
 
+                if req.status_code != 200:
+                    return -1
+
+                self.download = req
+                
             folder = "Overrides/" if self.toOverride else "Packages/" + "Sims-3-Auto-Performance-and-BugFixes/" + self.name + "/"
-
-            if req.status_code != 200:
-                return -1
-            
-            with self.createArchiveHandler(req,destination+folder) as mod:
+            with self.createArchiveHandler(self.download,destination+folder) as mod:
                 if self.filesPerEP:
                     files = {self.filesPerEP[ownedPack] for ownedPack in self.ownedPacks if ownedPack in self.filesPerEP}
                     mod.extract_list(files)

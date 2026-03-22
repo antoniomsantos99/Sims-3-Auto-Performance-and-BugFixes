@@ -3,6 +3,7 @@ import os
 import requests
 import zipfile
 import rarfile
+import tarfile
 import py7zr
 from abc import ABC, abstractmethod
 import tempfile
@@ -39,6 +40,7 @@ class ArchiveHandler(ABC):
         for file in fileList:
             for file_in_archive in self.get_file_names():
                 if file in file_in_archive:
+                    print("Extracting",file_in_archive, "To", self.destination)
                     self.archive.extract(file_in_archive,self.destination)
                     break
 
@@ -47,7 +49,7 @@ class ArchiveHandler(ABC):
             self.archive.close()
 
 
-# CLass to handle plain files
+# Class to handle plain files
 
 class PlainHandler(ArchiveHandler):
     def open(self):
@@ -57,9 +59,13 @@ class PlainHandler(ArchiveHandler):
         return [filename]
     
     def extract_all(self):
+        print(self.destination+self.filename)
         os.makedirs(self.destination, exist_ok=True)
         with open(self.destination+self.filename,"wb+") as f:
             f.write(self.stream)
+
+    def extract_list(self,fileList):
+        self.extract_all()
 
 
 # Class to handle zip files
@@ -73,6 +79,18 @@ class ZipHandler(ArchiveHandler):
 
     def get_file_names(self):
         return [file.filename for file in self.get_info_list()]
+
+# Class to handle tar files
+
+class TarHandler(ArchiveHandler):
+    def open(self):
+        self.archive = tarfile.open(fileobj=io.BytesIO(self.stream), mode='r:gz')
+    
+    def get_info_list(self):
+        return self.archive.getmembers()
+        
+    def get_file_names(self):
+        return [file.name for file in self.get_info_list()]
 
 # Class to handle 7z files
 
