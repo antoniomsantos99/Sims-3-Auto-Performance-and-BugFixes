@@ -12,10 +12,12 @@ This software currently executes the steps defined in the following [guide](http
 By using this software, you agree that the author or any associated parties are not responsible for any loss or damage, including but not limited to loss of data or equipment damage, that may result from the use or misuse of the software.
 
 ## Features
-* Auto detection of the game's user files
+* Compatible with both Linux and Windows
+* Automatic detection of the game's user files
 * Automatic detection of installed expansions
 * Smart selection of options given the installed expansions and current configuration.
 * All available options are selectable to ensure a more personalized experience - Change only what you want to
+* Downloads mods from the original sources.
 
 ## Roadmap
 I do not consider the current version as finished and still plan to do the following things:
@@ -24,12 +26,12 @@ I do not consider the current version as finished and still plan to do the follo
 - [x] Release a self-contained executable
 - [ ] Add support for multiple languages (maybe?)
 - [x] Add support for EA App version (Need tester)
-- [ ] Add support for MacOS and Linux (Need testers)
+- [ ] Add support for MacOS (Need testers)
 
 ## How to run? (In development)
 You can either download the self-contained program found [here](https://github.com/antoniomsantos99/Sims-3-Auto-Performance-and-BugFixes/releases). Or by setting the environment yourself by doing the following:
 
-Python 3.12 required and currently this software is only available on windows.
+Python 3.12 required and currently this software is available for both linux and windows.
 
 * Install [Python](https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe)
 * Install dependencies by running the following command: `pip install -r requirements.txt`
