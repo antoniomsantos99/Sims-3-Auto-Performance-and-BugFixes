@@ -62,12 +62,12 @@ class Ui_Window(object):
         possibleUserFolders : list = []
         userFolder=""
 
-        root = Path("~/Documents/Electronic Arts")
+        root = Path("~/Documents/Electronic Arts").expanduser()
 
         if not root.exists():
             return ""
 
-        for path in list(root.expanduser().iterdir()):
+        for path in list(root.iterdir()):
             if "Sims 3" in path.name:
                 possibleUserFolders.append(path)
 
