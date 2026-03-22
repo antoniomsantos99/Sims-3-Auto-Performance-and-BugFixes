@@ -1,11 +1,12 @@
 import requests
-from zipfile import ZipFile
-import rarfile
-from rarfile import RarFile
-rarfile.UNRAR_TOOL = r'UnRAR.exe'
+
 import io
+from collections import defaultdict
+from classes.archiveHandler import PlainHandler, ZipHandler, RarHandler, SevenZipHandler, ArchiveHandler, TarHandler
 
 import os
+
+headers = {'User-Agent': 'Mozilla/5.0'}
 
 class Mod:
     def __init__(self,name,dic,ownedPacks=set()):
@@ -13,79 +14,53 @@ class Mod:
         self.link : str = dic["Link"]
         self.fileName : str = dic["FileName"]
         self.linkEA : str = dic["LinkEA"]
-        self.toOverride : bool = "toOverride" in dic
+        self.toOverride : bool = dic["toOverride"]
         self.filesPerEP = dic["filesPerEP"]
         self.ownedPacks : set = ownedPacks
+        self.download = None
 
     def __repr__(self):
         return repr(f'''Name: {self.name} | Filename: {self.fileName} | Link: {self.link} | LinkEA: {self.linkEA} | toOverride: {self.toOverride} | filesPerEP: {self.filesPerEP}''')
 
-    def downloadMod(self):
-        req = requests.get(self.link)
+    def createArchiveHandler(self,response, destination):
+        match self.fileName.split(".")[-1]:
+            case "zip":
+                print(self.fileName.split(".")[-1])
+                return ZipHandler(response.content,destination,self.fileName)
+            case "rar":
+                return RarHandler(response.content,destination,self.fileName)
+            case "7z":
+                return SevenZipHandler(response.content,destination,self.fileName)
+            case "gz":
+                return TarHandler(response.content,destination,self.fileName)
+            case _:
+                return PlainHandler(response.content,destination,self.fileName)
 
-        if req.status_code != 200:
+    def handleMod(self,destination,isEA,console,tries=1):
+        if tries > 5:
             return -1
-        
-        path = f"Download/{"Mods" if not self.toOverride else "Override"}/{self.name}/"
-        os.makedirs(path, exist_ok=True)
-        with open(path+self.fileName,"wb") as f:
-            f.write(req.content)
 
-    def downloadAndExtractMod(self,path=None,isEA=False,update=None,retry=0):
-        if retry > 5:
-            update.emit(f"Download failed, skipping!")
-            return -1
-
-        update.emit(f"Downloding {self.fileName} from {self.linkEA if isEA else self.link}")
         try:
-            req = requests.get(self.linkEA if isEA else self.link)
-            if req.status_code != 200:
-                return -1
-            
-            if not path:
-                dest = f"Download/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
-            else:
-                dest = f"{path}/Mods/{"Packages"if not self.toOverride else "Overrides"}/Sims-3-Auto-Performance-and-BugFixes/{self.name.replace(":","")}"
+            # To prevent redownloading the same mod multiple times lets save it in the object
+            if(self.download is None):
+                link = self.linkEA if isEA else self.link
 
-            os.makedirs(dest, exist_ok=True)
-            EPDependentFiles =  dict((v,k) for k,v in self.filesPerEP.items()) if self.filesPerEP else {}
+                console.emit(f"Start downloading {self.fileName} from {link}")
+                req = requests.get(self.link,headers)
 
-            if self.fileName.endswith(".zip") or self.fileName.endswith(".rar") or self.fileName.endswith(".7z"):
-                archive = ZipFile(io.BytesIO(req.content)) if self.fileName.endswith(".zip") else RarFile(io.BytesIO(req.content))
-                fileList = archive.filelist if self.fileName.endswith(".zip") else archive.infolist()
-                for fileInfo in fileList:
-                    if fileInfo.filename not in EPDependentFiles or EPDependentFiles[fileInfo.filename] in self.ownedPacks:
-                        update.emit(f"Extracting {fileInfo.filename} to {dest}")
-                        archive.extract(fileInfo,dest)
-                archive.close()
-            else:
-                with open(dest+self.fileName,"wb") as f:
-                    update.emit(f"Writing {self.fileName} to {path}")
-                    f.write(req.content)
+                if req.status_code != 200:
+                    return -1
 
-            return 1
+                self.download = req
+                
+            folder = "Overrides/" if self.toOverride else "Packages/" + "Sims-3-Auto-Performance-and-BugFixes/" + self.name + "/"
+            with self.createArchiveHandler(self.download,destination+folder) as mod:
+                if self.filesPerEP:
+                    files = {self.filesPerEP[ownedPack] for ownedPack in self.ownedPacks if ownedPack in self.filesPerEP}
+                    mod.extract_list(files)
+                else:
+                    mod.extract_all()
         except Exception as e:
-            update.emit(f"Download {self.fileName} failed ({retry} out of 5 tries)")
             print(e)
-            self.downloadAndExtractMod(path,isEA,update,retry+1)
-        
-    
-    def downloadAndExtractModWithFileMap(self,fileMap,isEA,update):
-        update.emit(f"Downloding {self.fileName} from {self.linkEA if isEA else self.link}")
-        req = requests.get(self.linkEA if isEA else self.link)
-
-        if req.status_code != 200:
-            return -1
-               
-        EPDependentFiles =  dict((v,k) for k,v in self.filesPerEP.items()) if self.filesPerEP else {}
-
-        if self.fileName.endswith(".zip") or self.fileName.endswith(".rar"):
-            archive = ZipFile(io.BytesIO(req.content)) if self.fileName.endswith(".zip") else RarFile(io.BytesIO(req.content))
-            for fileName,filePath in fileMap.items():
-                if fileName not in EPDependentFiles or EPDependentFiles[fileName] in self.ownedPacks:
-                    os.makedirs(filePath, exist_ok=True)
-                    update.emit(f"Extracting {fileName} to {filePath}")
-                    archive.extract(fileName,filePath)
-            archive.close()
-
-        return 1
+            console.emit(f"Download failed (try {tries} : 5)")
+            self.handleMod(destination,isEA,console,tries+1)

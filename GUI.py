@@ -61,7 +61,13 @@ class Ui_Window(object):
     def getUserFolder(self):
         possibleUserFolders : list = []
         userFolder=""
-        for path in list(Path("~/Documents/Electronic Arts").expanduser().iterdir()):
+
+        root = Path("~/Documents/Electronic Arts").expanduser()
+
+        if not root.exists():
+            return ""
+
+        for path in list(root.iterdir()):
             if "Sims 3" in path.name:
                 possibleUserFolders.append(path)
 
