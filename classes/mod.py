@@ -64,3 +64,19 @@ class Mod:
             print(e)
             console.emit(f"Download failed (try {tries} : 5)")
             self.handleMod(destination,isEA,console,tries+1)
+
+    
+    def handleTool(self, destination,files, console):
+        if self.download is None:
+            console.emit(f"Start downloading {self.fileName} from {self.link}")
+            self.download = requests.get(self.link,headers)
+
+        try:
+            with self.createArchiveHandler(self.download,destination) as tool:
+                console.emit(f"Start extracting {self.fileName} to {destination}")
+                tool.extract_list(files)
+
+        except Exception as e:
+            print(e)
+            console.emit(f"Download failed (try {tries} : 5)")
+            self.handleTool(destination, files, console,tries+1)
