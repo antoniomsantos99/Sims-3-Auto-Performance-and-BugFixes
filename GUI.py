@@ -117,9 +117,9 @@ class Ui_Window(object):
 
         
 
-        stepsToDo = {"Smooth Patch":self.ComponentsDic["Steps"]["Download Smooth Patch"].checkState(3)._value_ == 2,
-                     "MaxFPS":self.ComponentsDic["Steps"]["Set FPS Limit"].text(3),
-                     "Borderless":self.ComponentsDic["Steps"]["Borderless"].checkState(3)._value_ == 2,
+        stepsToDo = {"UltimateAsiLoader":self.ComponentsDic["Steps"]["Ultimate Asi Loader"].checkState(3)._value_ == 2,
+                     "Sims3SettingsSetter":self.ComponentsDic["Steps"]["Sims 3 Settings Setter"].checkState(3)._value_ == 2,
+                     "MonoPatcher":self.ComponentsDic["Steps"]["MonoPatcher"].checkState(3)._value_ == 2,
                      "IntelFix":self.ComponentsDic["Steps"]["Intel Fix"].checkState(3)._value_ == 2,
                      "MoreCPU":self.ComponentsDic["Steps"]["Making The Game Use More CPU"].checkState(3)._value_ == 2,
                      "MoreGPU":self.ComponentsDic["Steps"]["Change allocated GPU VRAM"].text(3),

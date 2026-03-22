@@ -4,36 +4,52 @@ import os
 import pathlib
 import json
 
-def smoothPatch(isEA:bool,tps:int,fps:int,borderless:bool,path:str,update):
-    #Create Mod Object for smoothPatch
-    smoothPatch = defaultdict(lambda:None, {
-    "Link": "https://chii.modthesims.info/getfile.php?file=2124160&v=1706733391",
-    "LinkEA": "https://chii.modthesims.info/getfile.php?file=2125462&v=1706733367",
-    "FileName": "SmoothPatch.zip",
+def ultimateAsiLoader(gamePath,console):
+
+    asiLoader = defaultdict(lambda:None, {
+        "Link": "https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases/download/Win32-latest/wininet-Win32.zip",
+        "FileName": "wininet-Win32.zip",
     })
-    sP = Mod("Smooth Patch",smoothPatch)
 
-    #Downloading and Extracting required files
-    sP.downloadAndExtractModWithFileMap({
-        "ddraw.dll":f"{path}/Game/Bin",
-        "TS3Patch.asi":f"{path}/Game/Bin",
-        "TS3Patch.txt":f"{path}/Game/Bin"
-    },isEA,update)
+    loader = Mod("Ultimate Asi Loader",asiLoader)
 
-    #Changing values if needed.
-    if tps != 500 or fps != 0 or borderless:
-        with open(f"{path}/Game/Bin/TS3Patch.txt","r") as f:
-            content = f.readlines()
+    loader.handleTool(f"{gamePath}/Game/Bin",{"wininet.dll"},console)
 
-        update.emit(f"Setting TPS to {tps}")
-        content[6] = f"TPS = {tps}\n"
-        update.emit(f"Setting maxFPS to {fps}")
-        content[9] = f"FPSLimit = {fps}\n"
-        update.emit(f"Setting Borderless to {1 if borderless else 0}")
-        content[12] = f"Borderless = {1 if borderless else 0}\n"
+#WIP
+def dxvk(gamePath,console):
 
-        with open(f"{path}/Game/Bin/TS3Patch.txt","w") as f:
-            f.writelines(content)
+    dxvk = defaultdict(lambda:None, {
+        "Link": "https://github.com/doitsujin/dxvk/releases/download/v2.7.1/dxvk-2.7.1.tar.gz",
+        "FileName": "dxvk-2.7.1.tar.gz",
+    })
+
+    loader = Mod("Ultimate Asi Loader",asiLoader)
+
+    loader.handleTool(f"{gamePath}/Game/Bin",{"d3d9.dll"},console)
+
+def Sims3SettingsSetter(gamePath,console):
+    
+    s3ss = defaultdict(lambda:None, {
+        "Link": "https://github.com/sims3fiend/Sims3SettingsSetter/releases/download/1.4.1/Sims3SettingsSetter.asi",
+        "FileName": "Sims3SettingsSetter.asi",
+    })
+
+    settingSetter = Mod("Sims 3 Settings Setter",s3ss)
+
+    settingSetter.handleTool(f"{gamePath}/Game/Bin/",{},console)
+
+def monoPatcher(gamePath,userPath,console):
+    mp = defaultdict(lambda:None,{
+        "Link": "https://github.com/LazyDuchess/MonoPatcher/releases/download/0.3.0/MonoPatcher.zip",
+        "FileName": "MonoPatcher.zip",
+        })
+
+    monopatcher = Mod("MonoPatcher", mp)
+
+    monopatcher.handleTool(f"{userPath}/Mods/",{"ld_MonoPatcher.package"},console)
+
+    monopatcher.handleTool(f"{gamePath}/Game/",{"MonoPatcher.asi"},console)
+    
 
 def intelFix(update):
     import subprocess
@@ -96,16 +112,23 @@ def updateProgress(progress,stepsDone,totalSteps):
     return stepsDone
 
 def pipeLine(modsJson,gameVersion,ownedPacks,stepsToDo,modsToDownload,userPath,gamePath,originalVRAM,progress,update):
-    maxFPS = int(stepsToDo["MaxFPS"])
     vRAM = int(stepsToDo["MoreGPU"])
 
-    stepCount = stepsToDo["Smooth Patch"] + stepsToDo["IntelFix"] + (stepsToDo["MoreCPU"] or int(originalVRAM) != vRAM) + stepsToDo["FlushDCBackup"] + stepsToDo["Stopping Store Generated Jpgs"] + (len(modsToDownload))
+    stepCount = stepsToDo["UltimateAsiLoader"]+ stepsToDo["Sims3SettingsSetter"] + stepsToDo["MonoPatcher"] + stepsToDo["IntelFix"] + (stepsToDo["MoreCPU"] or int(originalVRAM) != vRAM) + stepsToDo["FlushDCBackup"] + stepsToDo["Stopping Store Generated Jpgs"] + (len(modsToDownload))
     stepsDone = 0
 
     isEA = not gameVersion.startswith("1.67") 
 
-    if stepsToDo["Smooth Patch"]:
-        smoothPatch(isEA,1000,maxFPS,stepsToDo["Borderless"],gamePath,update)
+    if stepsToDo["UltimateAsiLoader"]:
+        ultimateAsiLoader(gamePath,update)
+        stepsDone = updateProgress(progress,stepsDone,stepCount)
+
+    if stepsToDo["Sims3SettingsSetter"]:
+        Sims3SettingsSetter(gamePath,update)
+        stepsDone = updateProgress(progress,stepsDone,stepCount)
+
+    if stepsToDo["MonoPatcher"]:
+        monoPatcher(gamePath,userPath,update)
         stepsDone = updateProgress(progress,stepsDone,stepCount)
 
     

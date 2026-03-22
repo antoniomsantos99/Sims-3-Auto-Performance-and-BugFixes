@@ -1,18 +1,18 @@
 {
-    "Smooth Patch": {
-        "Download Smooth Patch": {
-            "Description": "Alters the speed at which the game's processing runs, which improves the overall performance of the game and some loading times. Most noticeably in Create A Sim, Create A Style and Buy/Build.",
-            "value": "bool"
-        },
-        "Set FPS Limit": {
-            "Description": "Limits FPS. Not limiting the games FPS can decrease the life of your graphics card fans!",
-            "value": "60"
-        },
-        "Borderless": {
-            "Description": "Enabled Borderless Windowed in-game. Uncheck Fullscreen in the in-game options for it to work.",
-            "value": "bool"
-        }
+
+    "Ultimate Asi Loader": {
+        "Description": "This loader is good for plugin and play and compatibilty with Reshade or DXVK its similar to the .asi loader found in the original Smooth Patch By Lazy Duchess.",
+        "value": "bool"
     },
+    "Sims 3 Settings Setter": {
+        "Description": "Mod that brings great performance patches to The Sims 3 it also includes its own smooth patch and borderless window modes!",
+        "value": "bool"
+    },
+    "MonoPatcher": {
+        "Description": "Library that allows Script Modders to replace Sims 3 methods with as much compatibility as possible - No need to create core mods anymore to replace game functions.",
+        "value": "bool"
+    },
+
     "Intel Fix": {
         "Description": "Very simple patch that attempts to workaround the crash on boot when trying to launch The Sims 3 on Intel alder lake CPU's (12th gen) or higher.",
         "value": "bool"
